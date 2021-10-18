@@ -108,12 +108,14 @@ const EarningUpperLeftBox = styled(Box)`
   border-right: 1px solid #dee2e6;
   padding: 0 24px;
   width: 50%;
+  height: 46px;
   display: inline-block;
   font-family: Roboto;
 `
 const EarningUpperRightBox = styled(Box)`
   padding: 0 24px;
   width: 50%;
+  height: 46px;
   display: inline-block;
 `
 const EarningBalanceHeading = styled(Box)`
@@ -127,11 +129,23 @@ const EarningBalanceQty = styled(Box)`
   text-align: right;
   font-family: Roboto;
 `
+const EarningAprBalanceQty = styled(Box)`
+  color: #4d5560;
+  font-size: 20px;
+  text-align: right;
+  font-family: Roboto;
+  margin-top: 14px;
+`
 const EarningBalanceAmt = styled(Box)`
   color: #dee2e6;
   font-size: 12px;
   text-align: right;
   font-family: Roboto;
+`
+const PercentSymbol = styled(Box)`
+  font-size: 12px;
+  font-family: Roboto;
+  display: inline-block;
 `
 
 type Step = { cardno: number; heading: string; title: string; currencysymbol: string; balance: string }
@@ -147,7 +161,14 @@ type Earning = {
   yearlyTx: number
   yearlyAmt: number
 }
-
+type Apr = {
+  title: string
+  heading: string
+  dailyTx: number
+  weeklyTx: number
+  monthlyTx: number
+  yearlyTx: number
+}
 const BoxCard: React.FC<{ step: Step }> = ({ step }) => {
   return (
     <StyledBoxCard width="100%">
@@ -201,6 +222,51 @@ const EarningCard: React.FC<{ earning: Earning }> = ({ earning }) => {
   )
 }
 
+const AprCard: React.FC<{ apr: Apr }> = ({ apr }) => {
+  return (
+    <StyledBoxCard width="100%">
+      <BoxCardInner>
+        <Text color="#4D5560" fontSize="13">
+          {apr.heading}
+        </Text>
+        <EarningUpperBox>
+          <EarningUpperLeftBox>
+            <EarningBalanceHeading>Daily</EarningBalanceHeading>
+            <EarningAprBalanceQty>
+              {apr.dailyTx}
+              <PercentSymbol> % </PercentSymbol>
+            </EarningAprBalanceQty>
+          </EarningUpperLeftBox>
+          <EarningUpperRightBox>
+            <EarningBalanceHeading>Weekly</EarningBalanceHeading>
+            <EarningAprBalanceQty>
+              {apr.weeklyTx}
+              <PercentSymbol> % </PercentSymbol>
+            </EarningAprBalanceQty>
+          </EarningUpperRightBox>
+        </EarningUpperBox>
+
+        <EarningLowerBox>
+          <EarningUpperLeftBox>
+            <EarningBalanceHeading>Monthly</EarningBalanceHeading>
+            <EarningAprBalanceQty>
+              {apr.monthlyTx}
+              <PercentSymbol> % </PercentSymbol>
+            </EarningAprBalanceQty>
+          </EarningUpperLeftBox>
+          <EarningUpperRightBox>
+            <EarningBalanceHeading>Yearly</EarningBalanceHeading>
+            <EarningAprBalanceQty>
+              {apr.yearlyTx}
+              <PercentSymbol> % </PercentSymbol>
+            </EarningAprBalanceQty>
+          </EarningUpperRightBox>
+        </EarningLowerBox>
+      </BoxCardInner>
+    </StyledBoxCard>
+  )
+}
+
 const Dashboard = () => {
   const { t } = useTranslation()
   const steps: Step[] = [
@@ -227,32 +293,27 @@ const Dashboard = () => {
     },
   ]
 
-  const earnings: Earning[] = [
-    {
-      title: t('your earnings'),
-      heading: t('Your earnings'),
-      dailyTx: 0,
-      dailyAmt: 0.0,
-      weeklyTx: 0,
-      weeklyAmt: 0.0,
-      monthlyTx: 0,
-      monthlyAmt: 0.0,
-      yearlyTx: 0,
-      yearlyAmt: 0.0,
-    },
-    {
-      title: t('your APR'),
-      heading: t('Your APR'),
-      dailyTx: 0,
-      dailyAmt: 0.0,
-      weeklyTx: 0,
-      weeklyAmt: 0.0,
-      monthlyTx: 0,
-      monthlyAmt: 0.0,
-      yearlyTx: 0,
-      yearlyAmt: 0.0,
-    },
-  ]
+  const earningData: Earning = {
+    title: t('your earnings'),
+    heading: t('Your earnings'),
+    dailyTx: 0,
+    dailyAmt: 0.0,
+    weeklyTx: 0,
+    weeklyAmt: 0.0,
+    monthlyTx: 0,
+    monthlyAmt: 0.0,
+    yearlyTx: 0,
+    yearlyAmt: 0.0,
+  }
+
+  const aprData: Apr = {
+    title: t('your APR'),
+    heading: t('Your APR'),
+    dailyTx: 0,
+    weeklyTx: 0,
+    monthlyTx: 0,
+    yearlyTx: 0,
+  }
 
   return (
     <Page>
@@ -260,9 +321,8 @@ const Dashboard = () => {
         <Flex flex="2" flexDirection="column">
           <StyledHeadingFlex>
             <PageHeading>{t('My Asset Report')}</PageHeading>
-            <PageHeadingDesc>
-              {t('Make a deposit and earn money. Opportunities for steady revenue generation are at hand.')}
-            </PageHeadingDesc>
+            <PageHeadingDesc>{t('Make a deposit and earn money. ')}</PageHeadingDesc>
+            <PageHeadingDesc>{t('Opportunities for steady revenue generation are at hand.')}</PageHeadingDesc>
           </StyledHeadingFlex>
         </Flex>
         <Flex flex="1" justifyContent="center">
@@ -278,9 +338,8 @@ const Dashboard = () => {
 
       <GappedFlex flexDirection={['column', 'column', 'column', 'row']}>
         <EarningBoxContainer>
-          {earnings.map((earning) => (
-            <EarningCard key={earning.title} earning={earning} />
-          ))}
+          <EarningCard earning={earningData} />
+          <AprCard apr={aprData} />
         </EarningBoxContainer>
       </GappedFlex>
     </Page>

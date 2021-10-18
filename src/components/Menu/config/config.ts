@@ -13,8 +13,8 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   },
   {
     label: t('Dashboard'),
-    icon: 'Dashboard',
     href: '/dashboard',
+    icon: 'Dashboard',
     showItemsOnMobile: false,
     items: [],
   },
