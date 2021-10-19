@@ -44,7 +44,6 @@ import { DesktopColumnSchema } from './components/types'
 import { DoodaStyledPageHeader, DoodaFarmHeading, DoodaFarmText } from './styles'
 import farmImage from '../../components/Dooda/assets/farmImage.png'
 
-
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
@@ -435,7 +434,6 @@ const Farms: React.FC = () => {
   return (
     <>
       <DoodaStyledPageHeader>
-
         <Flex flex="2" flexDirection={['row', null, null, 'row']} alignItems={['center', null, null, 'center']}>
           <Flex
             flex="2"
