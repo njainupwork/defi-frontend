@@ -1539,6 +1539,7 @@
   version "0.54.26"
   resolved "https://registry.yarnpkg.com/@doodaswap/uikit/-/uikit-0.54.26.tgz#2e6c399d290f4b8e976f9b16c3c46e971848ddf2"
   integrity sha512-yvPmTbsJ/BmPRsEHR5vxA+0F0N8LK6L1cS1HgbF5RDGz+9tjjoB9S7/qd1IaABIg69De5gCP/9+t6HNLxvOm5w==
+  
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"
