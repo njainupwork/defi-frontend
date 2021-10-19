@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text, Flex, Link } from '@doodaswap/uikit'
+import { LinkExternal, Text, Flex, Link, Skeleton } from '@doodaswap/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getAddress } from 'utils/addressHelpers'
@@ -197,7 +197,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const lpAddress = getAddress(farm.lpAddresses)
   const bsc = getBscScanLink(lpAddress, 'address')
   const info = `/info/pool/${lpAddress}`
-
+  // console.log('multi', apr)
   return (
     <Container expanded={expanded}>
       {/* <InfoContainer>
@@ -250,7 +250,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           {isActive && (
             <>
               <StakeContainer style={{ textAlign: 'right' }}>
-                <RightText>{t('40x')}</RightText>
+                {apr.multiplier ? <RightText>{apr.multiplier}</RightText> : <Skeleton width={75} height={25} />}
               </StakeContainer>
               <StakeContainer>
                 {/* <RightText style={{ textDecoration: 'underline' }}>{t('DOODA')}</RightText> */}
