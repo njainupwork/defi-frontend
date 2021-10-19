@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useLocation, Link, useRouteMatch } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, NotificationDot, Button } from '@doodaswap/uikit'
+
 import { useTranslation } from 'contexts/Localization'
 
 interface FarmTabButtonsProps {
