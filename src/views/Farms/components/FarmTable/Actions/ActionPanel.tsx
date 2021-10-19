@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text } from '@doodaswap/uikit'
+import { LinkExternal, Text, Flex, Link } from '@doodaswap/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getAddress } from 'utils/addressHelpers'
@@ -52,6 +52,7 @@ const Container = styled.div<{ expanded }>`
         `};
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
+  // background: ${({ theme }) => theme.colors.doodaPrimary};
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
@@ -65,6 +66,30 @@ const Container = styled.div<{ expanded }>`
 
 const StyledLinkExternal = styled(LinkExternal)`
   font-weight: 400;
+  // color: ${({ theme }) => theme.colors.doodaPrimary};
+  color: #4d5560;
+  ont-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: -0.02em;
+  margin: auto;
+  margin-right: 0px;
+`
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.doodaPrimary};
+  text-decoration: underline;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  margin: auto;
+  margin-right: 0px;
+  text-decoration-line: underline;
 `
 
 const StakeContainer = styled.div`
@@ -72,6 +97,9 @@ const StakeContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #ecf0f1;
+  height: 3.2rem;
+  padding-bottom: 3px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
@@ -112,7 +140,8 @@ const ActionContainer = styled.div`
 `
 
 const InfoContainer = styled.div`
-  min-width: 200px;
+  width: 9rem !important;
+  padding: 0.78rem 0rem;
 `
 
 const ValueContainer = styled.div`
@@ -128,6 +157,23 @@ const ValueWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 4px 0px;
+`
+const StyledText = styled(Text)`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: -0.8px;
+  color: #4d5560;
+`
+const RightText = styled(StyledText)`
+  flex-direction: column;
+  margin: auto;
+  margin-right: 1px;
+  align-items: right;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
@@ -154,7 +200,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   return (
     <Container expanded={expanded}>
-      <InfoContainer>
+      {/* <InfoContainer>
         {isActive && (
           <StakeContainer>
             <StyledLinkExternal href={`/add/${liquidityUrlPathParts}`}>
@@ -168,8 +214,62 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}
         </TagsContainer>
-      </InfoContainer>
-      <ValueContainer>
+      </InfoContainer> */}
+      <Flex flex="3" flexDirection={['column', null, null, 'row']} alignItems={['flex-start', null, null, 'center']}>
+        <InfoContainer style={{ visibility: 'hidden', minWidth: '15rem' }}>
+          {isActive && (
+            <StakeContainer>
+              <StyledLinkExternal href={`/add/${liquidityUrlPathParts}`}>
+                {t('Get %symbol%', { symbol: lpLabel })}
+              </StyledLinkExternal>
+            </StakeContainer>
+          )}
+        </InfoContainer>
+        <InfoContainer style={{ marginLeft: '5rem' }}>
+          {isActive && (
+            <>
+              <StakeContainer>
+                <StyledText>{t('Multiplier')}</StyledText>
+              </StakeContainer>
+              <StakeContainer>
+                <StyledText>{t('Pair')}</StyledText>
+              </StakeContainer>
+              <StakeContainer>
+                <StyledText>{t('My Assets Deposited')}</StyledText>
+              </StakeContainer>{' '}
+              <StakeContainer>
+                <StyledText>{t('My Rewarded Assets')}</StyledText>
+              </StakeContainer>
+              <StakeContainer style={{ visibility: 'hidden' }}>
+                <StyledText>{t('My Rewarded Assets')}</StyledText>
+              </StakeContainer>
+            </>
+          )}
+        </InfoContainer>
+        <InfoContainer style={{ textAlign: 'right' }}>
+          {isActive && (
+            <>
+              <StakeContainer style={{ textAlign: 'right' }}>
+                <RightText>{t('40x')}</RightText>
+              </StakeContainer>
+              <StakeContainer>
+                {/* <RightText style={{ textDecoration: 'underline' }}>{t('DOODA')}</RightText> */}
+                <StyledLinkExternal href={info}>{t('DOODA')}</StyledLinkExternal>
+              </StakeContainer>
+              <StakeContainer>
+                <RightText color="#00AF08">{t('~-USD')}</RightText>
+              </StakeContainer>{' '}
+              <StakeContainer>
+                <RightText color="#00AF08">{t('~-USD')}</RightText>
+              </StakeContainer>
+              <StakeContainer>
+                <StyledLink href={bsc}>{t('View on BscScan')}</StyledLink>
+              </StakeContainer>
+            </>
+          )}
+        </InfoContainer>
+      </Flex>
+      {/* <ValueContainer>
         <ValueWrapper>
           <Text>{t('APR')}</Text>
           <Apr {...apr} />
@@ -182,9 +282,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Text>{t('Liquidity')}</Text>
           <Liquidity {...liquidity} />
         </ValueWrapper>
-      </ValueContainer>
+      </ValueContainer> */}
       <ActionContainer>
-        <HarvestAction {...farm} userDataReady={userDataReady} />
+        {/* <HarvestAction {...farm} userDataReady={userDataReady} /> */}
         <StakedAction {...farm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value} />
       </ActionContainer>
     </Container>

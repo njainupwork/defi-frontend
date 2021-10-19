@@ -330,7 +330,7 @@ const Farms: React.FC = () => {
 
     return row
   })
-
+  // display the dynamic data on table
   const renderContent = (): JSX.Element => {
     if (viewMode === ViewMode.TABLE && rowData.length) {
       const columnSchema = DesktopColumnSchema
@@ -359,29 +359,6 @@ const Farms: React.FC = () => {
       }))
 
       return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
-      // return (
-      //   <Table>
-      //     <thead>
-      //       <tr>
-      //         <Th textAlign="left">Column 1</Th>
-      //         <Th>Column 2</Th>
-      //         <Th>Column 3</Th>
-      //       </tr>
-      //     </thead>
-      //     <tbody>
-      //       <tr>
-      //         <Td>Cell 1-1</Td>
-      //         <Td>Cell 1-2</Td>
-      //         <Td>Cell 1-3</Td>
-      //       </tr>
-      //       <tr>
-      //         <Td>Cell 2-1</Td>
-      //         <Td>Cell 2-2</Td>
-      //         <Td>Cell 2-3</Td>
-      //       </tr>
-      //     </tbody>
-      //   </Table>
-      // )
     }
 
     return (

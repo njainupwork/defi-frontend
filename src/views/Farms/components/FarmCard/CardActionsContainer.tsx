@@ -14,8 +14,29 @@ import HarvestAction from './HarvestAction'
 import useApproveFarm from '../../hooks/useApproveFarm'
 
 const Action = styled.div`
-  padding-top: 16px;
+  // margin-left: 3rem;
 `
+const StyledConnectButton = styled(Button)`
+  background: ${({ theme }) => theme.colors.doodaPrimary};
+  border-radius: 2px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: -0.8px;
+  color: #f1f3f5;
+`
+const StyledConnectWalletButton = styled(ConnectWalletButton)`
+  background: ${({ theme }) => theme.colors.doodaPrimary};
+  border-radius: 2px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: -0.8px;
+  color: #f1f3f5;
+`
+
 export interface FarmWithStakedValue extends DeserializedFarm {
   apr?: number
 }
@@ -26,9 +47,17 @@ interface FarmCardActionsProps {
   addLiquidityUrl?: string
   cakePrice?: BigNumber
   lpLabel?: string
+  expanded?: boolean
 }
 
-const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidityUrl, cakePrice, lpLabel }) => {
+const CardActions: React.FC<FarmCardActionsProps> = ({
+  farm,
+  account,
+  addLiquidityUrl,
+  cakePrice,
+  lpLabel,
+  expanded,
+}) => {
   const { t } = useTranslation()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { pid, lpAddresses } = farm
@@ -65,32 +94,34 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
         addLiquidityUrl={addLiquidityUrl}
       />
     ) : (
-      <Button mt="8px" width="100%" disabled={requestedApproval} onClick={handleApprove}>
-        {t('Enable Contract')}
-      </Button>
+      <StyledConnectButton width="100%" disabled={expanded} onClick={handleApprove}>
+        {t('Enable')}
+      </StyledConnectButton>
     )
   }
 
   return (
     <Action>
-      <Flex>
+      {/* <Flex>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
           CAKE
         </Text>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {t('Earned')}
         </Text>
-      </Flex>
-      <HarvestAction earnings={earnings} pid={pid} />
+      </Flex> */}
+      {/* <HarvestAction earnings={earnings} pid={pid} /> */}
       <Flex>
-        <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
+        {/* <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
           {farm.lpSymbol}
-        </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        </Text> */}
+        {/* <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {t('Staked')}
-        </Text>
+        </Text> */}
       </Flex>
-      {!account ? <ConnectWalletButton mt="8px" width="100%" /> : renderApprovalOrStakeButton()}
+      <Flex flex="2" flexDirection={['row', null, null, 'row']} alignItems={['flex-start', null, null, 'flex-end']}>
+        {!account ? <StyledConnectWalletButton width="100%" /> : renderApprovalOrStakeButton()}
+      </Flex>
     </Action>
   )
 }
