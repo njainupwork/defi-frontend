@@ -36,5 +36,4 @@ describe('getActiveMenuItem', () => {
     // Then
     expect(result).toEqual(menuConfig(mockT)[2])
   })
-
 })
