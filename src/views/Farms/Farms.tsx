@@ -456,7 +456,7 @@ const Farms: React.FC = () => {
                 onChange={() => setStakedOnly(!stakedOnly)}
                 scale="sm"
               /> */}
-              <Checkbox name="confirmed" type="checkbox" onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+              <Checkbox id="staked-only-farms" name="confirmed" type="checkbox" onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
 
               <StyledText> {t('Staked')}</StyledText>
             </ToggleWrapper>
