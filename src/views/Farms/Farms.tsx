@@ -16,6 +16,7 @@ import {
   Td,
   // Table,
 } from '@doodaswap/uikit'
+
 import { ChainId } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
