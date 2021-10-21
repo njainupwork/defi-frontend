@@ -463,6 +463,7 @@ const Farms: React.FC = () => {
                 onChange={() => setStakedOnly(!stakedOnly)}
                 scale="sm"
               />
+
               <StyledText> {t('Staked')}</StyledText>
             </ToggleWrapper>
           </ViewControlsRight>
