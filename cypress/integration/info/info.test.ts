@@ -13,7 +13,7 @@ describe('Info Page', () => {
     cy.visit('/info/pool/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16')
     // Sometime no issue, sometime works, due to network issue.
     // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(20000)
+    cy.wait(45000)
     cy.get('#info-pool-pair-title').should('be.visible')
   })
 
