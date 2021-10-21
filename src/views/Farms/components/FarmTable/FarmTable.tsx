@@ -98,7 +98,6 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
   const { data, columns, userDataReady } = props
-  console.log('Hey data before sending to useTable', data)
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'farm' })
 
   const scrollToTop = (): void => {
