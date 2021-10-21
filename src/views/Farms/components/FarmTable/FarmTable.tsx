@@ -98,10 +98,8 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
   const { data, columns, userDataReady } = props
-  console.log('Hey data before sending to useTable', data)
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'farm' })
 
-  // console.log('Rows', rows)
   const scrollToTop = (): void => {
     tableWrapperEl.current.scrollIntoView({
       behavior: 'smooth',
@@ -115,8 +113,8 @@ const FarmTable: React.FC<ITableProps> = (props) => {
           <StyledTable>
             <TableHead>
               <StyledThTr>
-                {tableTh.map((row) => (
-                  <td>{row}</td>
+                {tableTh.map((thRow) => (
+                  <td>{thRow}</td>
                 ))}
               </StyledThTr>
             </TableHead>
@@ -130,7 +128,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
         <ScrollButtonContainer>
           <Button variant="text" onClick={scrollToTop}>
             {t('To Top')}
-            <ChevronUpIcon color="primary" />
+            <ChevronUpIcon color="doodaPrimary" />
           </Button>
         </ScrollButtonContainer>
       </TableContainer>

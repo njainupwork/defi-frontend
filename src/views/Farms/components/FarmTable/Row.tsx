@@ -89,9 +89,6 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const tableSchema = isSmallerScreen ? MobileColumnSchema : DesktopColumnSchema
   const columnNames = tableSchema.map((column) => column.name)
 
-  // console.log('TableSchema', tableSchema)
-  console.log(props, 'This is data')
-
   const handleRenderRow = () => {
     if (!isMobile) {
       return (
@@ -143,6 +140,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     }
 
     return (
+      // mobile view
       <StyledTr onClick={toggleActionPanel}>
         <td>
           <tr>
@@ -178,6 +176,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
 
   return (
     <>
+      {/* render the section when clicked */}
       {handleRenderRow()}
       {shouldRenderChild && (
         <tr>
