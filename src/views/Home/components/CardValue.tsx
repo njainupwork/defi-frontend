@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useCountUp } from 'react-countup'
 import { Text } from '@doodaswap/uikit'
+import styled from 'styled-components'
 
 export interface CardValueProps {
   value: number
@@ -11,6 +12,21 @@ export interface CardValueProps {
   bold?: boolean
   color?: string
 }
+
+const StyledText = styled(Text)`
+  font-family: Roboto;
+  // font-style: normal;
+  // font-weight: bold;
+  // font-size: 28px;
+  // line-height: 48px;
+  // /* identical to box height, or 171% */
+
+  // letter-spacing: -0.02em;
+
+  // /* gray_10 */
+
+  // color: #f1f3f5;
+`
 
 const CardValue: React.FC<CardValueProps> = ({
   value,
@@ -38,10 +54,10 @@ const CardValue: React.FC<CardValueProps> = ({
   }, [value, updateValue])
 
   return (
-    <Text bold={bold} fontSize={fontSize} style={{ lineHeight }} color={color}>
+    <StyledText bold={bold} fontSize={fontSize} style={{ lineHeight }} color={color}>
       {prefix}
       {countUp}
-    </Text>
+    </StyledText>
   )
 }
 

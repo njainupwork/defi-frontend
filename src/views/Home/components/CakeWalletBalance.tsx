@@ -1,5 +1,6 @@
 import React from 'react'
-import { Text } from '@doodaswap/uikit'
+import { Text, Flex } from '@doodaswap/uikit'
+import styled from 'styled-components'
 import { useWeb3React } from '@web3-react/core'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
@@ -29,9 +30,23 @@ const CakeWalletBalance = () => {
 
   return (
     <>
-      <CardValue value={getBalanceNumber(cakeBalance)} decimals={4} fontSize="24px" lineHeight="36px" />
-      {cakePriceBusd ? <CardBusdValue value={busdBalance} /> : <br />}
-      {/* {cakePriceBusd.gt(0) ? <CardBusdValue value={busdBalance} /> : <br />} */}
+      <Flex flexDirection="column" mt="0.9rem">
+        <CardValue
+          value={getBalanceNumber(cakeBalance)}
+          decimals={4}
+          fontSize="35px"
+          lineHeight="36px"
+          color="#F1F3F5"
+        />
+        {cakePriceBusd ? (
+          <div style={{ marginTop: '9px' }}>
+            <CardBusdValue value={busdBalance} />
+          </div>
+        ) : (
+          <br />
+        )}
+        {/* {cakePriceBusd.gt(0) ? <CardBusdValue value={busdBalance} /> : <br />} */}
+      </Flex>
     </>
   )
 }
