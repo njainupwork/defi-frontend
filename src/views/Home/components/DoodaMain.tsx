@@ -365,28 +365,35 @@ const DoodaMain = () => {
   //   fetchFarmData()
   // }, [dispatch, setIsFetchingFarmData])
 
-  // const highestApr = useMemo(() => {
-  //   if (cakePrice.gt(0)) {
-  //     const aprs = farmsLP.map((farm) => {
-  //       // Filter inactive farms, because their theoretical APR is super high. In practice, it's 0.
-  //       if (farm.pid !== 0 && farm.multiplier !== '0X' && farm.lpTotalInQuoteToken && farm.quoteToken.busdPrice) {
-  //         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-  //         const { cakeRewardsApr, lpRewardsApr } = getFarmApr(
-  //           new BigNumber(farm.poolWeight),
-  //           cakePrice,
-  //           totalLiquidity,
-  //           farm.lpAddresses[ChainId.MAINNET],
-  //         )
-  //         return cakeRewardsApr + lpRewardsApr
-  //       }
-  //       return null
-  //     })
+  const highestApr = useMemo(() => {
+    if (cakePrice.gt(0)) {
+      const aprs = farmsLP.map((farm) => {
+        // Filter inactive farms, because their theoretical APR is super high. In practice, it's 0.
+        // if (farm.pid !== 0 && farm.multiplier !== '0X' && farm.lpTotalInQuoteToken && farm.oldQuoteToken.busdPrice) {
+        //   const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.oldQuoteToken.busdPrice)
+        //   const { cakeRewardsApr, lpRewardsApr } = getFarmApr(
+        //     new BigNumber(farm.poolWeight),
+        //     cakePrice,
+        //     totalLiquidity,
+        //     farm.lpAddresses[ChainId.MAINNET],
+        //   )
+        //   return cakeRewardsApr + lpRewardsApr
+        // }
+        // if (farm.pid !== 0) {
+        //   console.log('abc')
+        // }
+        // console.log(farm, 'eachFarm apr')
 
-  //     const maxApr = max(aprs)
-  //     return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
-  //   }
-  //   return null
-  // }, [cakePrice, farmsLP])
+        // return '400%'
+        return null
+      })
+      return '398%'
+      // const maxApr = max(aprs)
+      // return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
+    }
+    return null
+    // return '200%'
+  }, [cakePrice, farmsLP])
 
   // const aprText = highestApr || '-'
   // const earnAprText = t('Earn up to %highestApr% APR in Farms', { highestApr: aprText })
@@ -396,7 +403,6 @@ const DoodaMain = () => {
     <>
       <Flex
         position="relative"
-        // flexDirection={['column', null, null, 'row']}
         alignItems={['center', null, null, 'center']}
         justifyContent="center"
         id="homepage-hero"
@@ -440,7 +446,6 @@ const DoodaMain = () => {
               <DmainRight>
                 <StyledDoodaHeadAlt2>{t('DOODA Stats')}</StyledDoodaHeadAlt2>
                 <Flex flex="2" flexDirection={['column', null, null, 'column']}>
-                  {/* {DoodaStatData.map((eachData, index) => ( */}
                   <DoodaStatEachRow
                     // style={{
                     //   backgroundColor: `${(index + 1) % 2 !== 0 ? '#F1F3F5' : '#DEE2E6'}`,
@@ -448,7 +453,6 @@ const DoodaMain = () => {
                     style={{ backgroundColor: '#F1F3F5' }}
                   >
                     <DoodaStatLabel>{t('USD MARKET CAP')}</DoodaStatLabel>
-                    {/* <DoodaStatValue>$ 173,677,628</DoodaStatValue> */}
                     <DoodaStatValue>$ 173,677,628</DoodaStatValue>
                   </DoodaStatEachRow>
                   <DoodaStatEachRow style={{ backgroundColor: '#DEE2E6' }}>
@@ -496,7 +500,9 @@ const DoodaMain = () => {
                   <DoodaStyledRightBtn>{t('Apply')}</DoodaStyledRightBtn>
                 </Flex>
                 <DoodaStyledLabel>
-                  419.40<span>&nbsp;%</span>
+                  {/* 419.40 */}
+                  {highestApr}
+                  {/* <span>&nbsp;%</span> */}
                 </DoodaStyledLabel>
               </DoodaLeftBelow>
               <DoodaRightBelow>
@@ -514,7 +520,6 @@ const DoodaMain = () => {
                       <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
                         {t('Total Value Locked')}
                       </DoodaSubText>
-                      {/* <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn> */}
                     </Flex>
                     <DoodaStyledLabel>{data ? <>{`$${tvl}`}</> : <Skeleton height={66} />}</DoodaStyledLabel>
                   </RightEachCard>
@@ -529,10 +534,7 @@ const DoodaMain = () => {
                       </DoodaSubText>
                       <DoodaStyledRightBtn>{t('My Status')}</DoodaStyledRightBtn>
                     </Flex>
-                    <DoodaStyledLabel>
-                      {/* <DollorIndicator>$&nbsp;</DollorIndicator> */}
-                      531,067,356
-                    </DoodaStyledLabel>
+                    <DoodaStyledLabel>531,067,356</DoodaStyledLabel>
                   </RightEachCard2>
                 </Flex>
               </DoodaRightBelow>
@@ -544,26 +546,4 @@ const DoodaMain = () => {
   )
 }
 
-const DoodaStatData = [
-  {
-    label: 'USD 환산 가치',
-    value: '$ 173,677,628',
-  },
-  {
-    label: 'DOODA 유통 수량',
-    value: '50,416,577',
-  },
-  {
-    label: '소각된 DOODA',
-    value: '11,294,246',
-  },
-  {
-    label: '유동성 공급 중인 자산',
-    value: '$ 391,549,899',
-  },
-  {
-    label: 'DISTRIBUTED DOODA/BLOCK',
-    value: '10',
-  },
-]
 export default DoodaMain
