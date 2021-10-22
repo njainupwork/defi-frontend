@@ -178,11 +178,6 @@ export const RoundPrice: React.FC<RoundPriceProps> = ({ lockPrice, closePrice })
   )
 }
 
-/**
- * TODO: Remove
- *
- * This is a temporary function until we consolidate the data coming from the graph versus the node
- */
 interface PrizePoolHistoryRowProps extends FlexProps {
   totalAmount: number
 }

@@ -136,13 +136,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
           <InfoContainer style={{ visibility: 'visible', width: '48%' }}>
             <StakeContainer>
               {/* <Link href={`/add/${liquidityUrlPathParts}`}>{t('Get %symbol%', { symbol: lpLabel })}</Link> */}
-              <CardSubLabel>{t('DOODA 보상')}</CardSubLabel>
+              <CardSubLabel>{t('')}</CardSubLabel>
               <CardSubValue>?</CardSubValue>
             </StakeContainer>
           </InfoContainer>
           <InfoContainer style={{ visibility: 'visible', width: '48%' }}>
             <StakeContainer>
-              <CardSubLabel>{t('예상 연 수익률')}</CardSubLabel>
+              <CardSubLabel>{t('')}</CardSubLabel>
               <CardSubValue>
                 {farm.apr ? (
                   <ApyButton
@@ -164,7 +164,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
           </InfoContainer>
           <InfoContainer style={{ visibility: 'visible', width: '48%' }}>
             <StakeContainer>
-              <CardSubLabel>{t('예치 자산')}</CardSubLabel>
+              <CardSubLabel>{t('Assets Deposit')}</CardSubLabel>
               <CardSubValue>
                 {farm.userData ? (
                   <div>{getBalanceNumber(new BigNumber(farm.userData.earnings))}</div>

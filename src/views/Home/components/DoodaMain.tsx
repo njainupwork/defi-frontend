@@ -413,13 +413,13 @@ const DoodaMain = () => {
               alignItems={['flex-start', 'center', 'center', 'center']}
             >
               <DmainLeft>
-                <StyledDoodaHeadAlt>{t('아프로디테 (AFD) NFT 옥션이 시작되었습니다!')}</StyledDoodaHeadAlt>
+                <StyledDoodaHeadAlt>{t('Started Aphrodite (AFD) NFT collection!')}</StyledDoodaHeadAlt>
                 <Flex
                   flex="2"
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaSubTextLeft>{t('총 46종의 NFT를 만나보세요. 48시간 후에 시작됩니다.')}</DoodaSubTextLeft>
+                  <DoodaSubTextLeft>{t('Check 46 spices NFT, it start 48hours later')}</DoodaSubTextLeft>
                   <StyledRightArrow isDark={theme.isDark} />
                 </Flex>
                 <Flex
@@ -427,7 +427,7 @@ const DoodaMain = () => {
                   flexDirection={['column-reverse', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaDefaultBtn>바로가기</DoodaDefaultBtn>
+                  <DoodaDefaultBtn>{t('Go')}</DoodaDefaultBtn>
                 </Flex>
                 <CarosalContainer>
                   <CarosalMain isDark={theme.isDark} />
@@ -447,21 +447,21 @@ const DoodaMain = () => {
                     // }}
                     style={{ backgroundColor: '#F1F3F5' }}
                   >
-                    <DoodaStatLabel>{t('USD 환산 가치')}</DoodaStatLabel>
+                    <DoodaStatLabel>{t('USD MARKET CAP')}</DoodaStatLabel>
                     {/* <DoodaStatValue>$ 173,677,628</DoodaStatValue> */}
                     <DoodaStatValue>$ 173,677,628</DoodaStatValue>
                   </DoodaStatEachRow>
                   <DoodaStatEachRow style={{ backgroundColor: '#DEE2E6' }}>
-                    <DoodaStatLabel>{t('DOODA 유통 수량')}</DoodaStatLabel>
+                    <DoodaStatLabel>{t('TOTAL DOODA SUPPLY')}</DoodaStatLabel>
                     <DoodaStatValue>{cakeSupply}</DoodaStatValue>
                   </DoodaStatEachRow>
 
                   <DoodaStatEachRow style={{ backgroundColor: '#F1F3F5' }}>
-                    <DoodaStatLabel>{t('소각된 DOODA')}</DoodaStatLabel>
+                    <DoodaStatLabel>{t('TOTAL CAKE BURNED')}</DoodaStatLabel>
                     <DoodaStatValue>{burnedBalance}</DoodaStatValue>
                   </DoodaStatEachRow>
                   <DoodaStatEachRow style={{ backgroundColor: '#DEE2E6' }}>
-                    <DoodaStatLabel>{t('유동성 공급 중인 자산')}</DoodaStatLabel>
+                    <DoodaStatLabel>{t('DOODA IN CIRCULATION')}</DoodaStatLabel>
                     {/* <DoodaStatValue>{burnedBalance}</DoodaStatValue> */}
                   </DoodaStatEachRow>
                   <DoodaStatEachRow style={{ backgroundColor: '#F1F3F5' }}>
@@ -471,7 +471,7 @@ const DoodaMain = () => {
                   {/* ))} */}
                   <DoodaStatStyledButton>
                     <DoodaHeading style={{ color: '#F1F3F5', fontSize: '14px', marginTop: '2px' }}>
-                      {t('더 알아보기')}
+                      {t('Learn more')}
                     </DoodaHeading>
                   </DoodaStatStyledButton>
                 </Flex>
@@ -490,8 +490,10 @@ const DoodaMain = () => {
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['flex-start', null, null, 'center']}
                 >
-                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>예상 연 수익률</DoodaSubText>
-                  <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn>
+                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                    {t('Earn up to APR  in farms')}
+                  </DoodaSubText>
+                  <DoodaStyledRightBtn>{t('Apply')}</DoodaStyledRightBtn>
                 </Flex>
                 <DoodaStyledLabel>
                   419.40<span>&nbsp;%</span>
@@ -522,8 +524,10 @@ const DoodaMain = () => {
                       flexDirection={['row', null, null, 'row']}
                       alignItems={['flex-start', null, null, 'center']}
                     >
-                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>내 참여 자산</DoodaSubText>
-                      <DoodaStyledRightBtn>내 상태</DoodaStyledRightBtn>
+                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                        {t('My Applied Assets')}
+                      </DoodaSubText>
+                      <DoodaStyledRightBtn>{t('My Status')}</DoodaStyledRightBtn>
                     </Flex>
                     <DoodaStyledLabel>
                       {/* <DollorIndicator>$&nbsp;</DollorIndicator> */}
