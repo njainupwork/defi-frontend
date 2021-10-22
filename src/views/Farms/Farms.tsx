@@ -418,12 +418,12 @@ const Farms: React.FC = () => {
             alignItems={['flex-start', null, null, 'flex-start']}
           >
             <DoodaFarmHeading as="h1" scale="xxl" color="doodaPrimary" mb="24px">
-              {t('파밍')}
+              {t('Farming')}
             </DoodaFarmHeading>
             <DoodaFarmText scale="lg" color="doodaText">
-              {t('자산을 예치하고')}
+              {t('Deposit asset')}
               <br />
-              {t('DOODA 토큰을 보상 받아보세요.')}
+              {t('GET Reward DOODA')}
             </DoodaFarmText>
           </Flex>
           <Image src="/images/farm/farmImage.png" width={400} height={350} />

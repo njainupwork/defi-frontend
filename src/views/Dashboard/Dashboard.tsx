@@ -274,22 +274,22 @@ const Dashboard = () => {
       cardno: 1,
       heading: t('TVL all pools'),
       title: t('TVL all pools'),
-      currencysymbol: t('$'),
-      balance: t('0.00'),
+      currencysymbol: '$',
+      balance: '1.00',
     },
     {
       cardno: 2,
       heading: t('Dooda Holdingds'),
       title: t('Dooda Holdingds'),
-      currencysymbol: t(''),
-      balance: t('0.00'),
+      currencysymbol: '',
+      balance: '9.00',
     },
     {
       cardno: 3,
       heading: t('Dooda price'),
       title: t('Dooda price'),
-      currencysymbol: t('$'),
-      balance: t('3.52'),
+      currencysymbol: '$',
+      balance: '3.52',
     },
   ]
 

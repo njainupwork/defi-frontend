@@ -257,10 +257,10 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
                 <StyledLinkExternal href={info}>{t('DOODA')}</StyledLinkExternal>
               </StakeContainer>
               <StakeContainer>
-                <RightText color="#00AF08">{t('~-USD')}</RightText>
+                <RightText color="#00AF08">~-USD</RightText>
               </StakeContainer>{' '}
               <StakeContainer>
-                <RightText color="#00AF08">{t('~-USD')}</RightText>
+                <RightText color="#00AF08">~-USD</RightText>
               </StakeContainer>
               <StakeContainer>
                 <StyledLink href={bsc}>{t('View on BscScan')}</StyledLink>
