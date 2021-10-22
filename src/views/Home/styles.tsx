@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Heading } from '@doodaswap/uikit'
+import { Heading, Button } from '@doodaswap/uikit'
 
 // added custom styled components for doodaswap
 export const DoodaHeading = styled(Heading)`
@@ -96,6 +96,23 @@ export const DoodaSubText = styled.h4`
 // `
 
 export const DswapButton = styled.button`
+  color: red;
+  width: 100%;
+  margin-top: 0.6rem;
+  background: #ffffff;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem;
+  font-family: Spoqa Han Sans Neo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: -0.8px;
+  color: #636c7d;
+`
+export const DoodaHarvestAllButton = styled(Button)`
   color: red;
   width: 100%;
   margin-top: 0.6rem;
