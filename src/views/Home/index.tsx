@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         {/* <Hero /> */}
         <DoodaMain />
       </StyledHeroSection>
-      <PageSection
+      {/* <PageSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
       >
         <MetricsSection />
         <FarmStakingCard />
-      </PageSection>
+      </PageSection> */}
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={theme.colors.background}
