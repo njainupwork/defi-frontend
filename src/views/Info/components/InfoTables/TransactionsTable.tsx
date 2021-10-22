@@ -1,4 +1,3 @@
-// TODO PCS refactor ternaries
 /* eslint-disable no-nested-ternary */
 import React, { useCallback, useState, useMemo, useEffect } from 'react'
 import styled from 'styled-components'

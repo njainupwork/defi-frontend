@@ -59,7 +59,6 @@ const TransferNftModal: React.FC<TransferNftModalProps> = ({ nft, tokenIds, onSu
       } else {
         const tx = await callWithGasPrice(contract, 'transferFrom', [account, value, tokenIds[0]])
         setIsLoading(true)
-        // TODO: Refactor to try/catch pattern so error state is properly handled
         const receipt = await tx.wait()
         if (receipt.status) {
           onDismiss()

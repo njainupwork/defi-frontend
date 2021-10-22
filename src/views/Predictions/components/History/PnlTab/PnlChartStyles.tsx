@@ -7,7 +7,6 @@
  * 3. Since this error is in the middle of a template string there is no way to add @ts-ignore on just that one line
  * without also messing prettier.
  *
- * I'll leave TODO: comment here to check back later if there is update to types
  *
  */
 import styled, { keyframes } from 'styled-components'
