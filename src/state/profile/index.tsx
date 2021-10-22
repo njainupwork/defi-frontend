@@ -88,7 +88,6 @@ export const { profileFetchStart, profileFetchSucceeded, profileFetchFailed, pro
   profileSlice.actions
 
 // Thunks
-// TODO: this should be an AsyncThunk
 export const fetchProfile = (address: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(profileFetchStart())

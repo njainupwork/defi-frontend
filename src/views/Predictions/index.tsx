@@ -33,7 +33,6 @@ const Predictions = () => {
   const [onPresentRiskDisclaimer] = useModal(<RiskDisclaimer onSuccess={handleAcceptRiskSuccess} />, false)
   const [onPresentChartDisclaimer] = useModal(<ChartDisclaimer />, false)
 
-  // TODO: memoize modal's handlers
   const onPresentRiskDisclaimerRef = useRef(onPresentRiskDisclaimer)
   const onPresentChartDisclaimerRef = useRef(onPresentChartDisclaimer)
 
