@@ -74,22 +74,22 @@ const FarmedStakingCard = () => {
           <CakeWalletBalance />
         </Block>
         <Actions style={{ background: 'red' }}>
-        {account ? (
-          <Button
-            id="harvest-all"
-            disabled={balancesWithValue.length <= 0 || pendingTx}
-            onClick={harvestAllFarms}
-            width="100%"
-          >
-            {pendingTx
-              ? t('Collecting CAKE')
-              : t('Harvest all (%count%)', {
-                  count: balancesWithValue.length,
-                })}
-          </Button>
-        ) : (
-          <UnlockButton width="100%" />
-        )}
+          {account ? (
+            <Button
+              id="harvest-all"
+              disabled={balancesWithValue.length <= 0 || pendingTx}
+              onClick={harvestAllFarms}
+              width="100%"
+            >
+              {pendingTx
+                ? t('Collecting CAKE')
+                : t('Harvest all (%count%)', {
+                    count: balancesWithValue.length,
+                  })}
+            </Button>
+          ) : (
+            <UnlockButton width="100%" />
+          )}
         </Actions>
       </CardBody>
     </StyledFarmStakingCard>
