@@ -114,7 +114,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
             <TableHead>
               <StyledThTr>
                 {tableTh.map((thRow) => (
-                  <td>{thRow}</td>
+                  <td>{t(thRow)}</td>
                 ))}
               </StyledThTr>
             </TableHead>
@@ -135,6 +135,6 @@ const FarmTable: React.FC<ITableProps> = (props) => {
     </Container>
   )
 }
-const tableTh = ['페어명', '예상 연 수익률', '예치 자산', 'DOODA 보상', '']
+const tableTh = ['Pairname', 'APR', 'Liquidity', 'Earned', '']
 
 export default FarmTable
