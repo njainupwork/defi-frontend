@@ -178,7 +178,6 @@ export const RoundPrice: React.FC<RoundPriceProps> = ({ lockPrice, closePrice })
   )
 }
 
-
 interface PrizePoolHistoryRowProps extends FlexProps {
   totalAmount: number
 }
