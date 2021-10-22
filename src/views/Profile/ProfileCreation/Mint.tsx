@@ -35,7 +35,6 @@ const Mint: React.FC = () => {
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
-        // TODO: Move this to a helper, this check will be probably be used many times
         try {
           const response = await cakeContract.allowance(account, bunnyFactoryContract.address)
           return response.gte(minimumCakeRequired)

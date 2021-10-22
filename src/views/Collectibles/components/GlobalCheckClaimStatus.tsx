@@ -13,7 +13,6 @@ interface GlobalCheckClaimStatusProps {
  * This is represented as a component rather than a hook because we need to keep it
  * inside the Router.
  *
- * TODO: Put global checks in redux or make a generic area to house global checks
  */
 const GlobalCheckClaimStatus: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocations }) => {
   const hasDisplayedModal = useRef(false)

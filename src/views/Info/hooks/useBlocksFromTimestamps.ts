@@ -86,7 +86,7 @@ export const useBlocksFromTimestamps = (
     if (!blocks && !error) {
       fetchData()
     }
-  }) // TODO: dep array?
+  })
 
   return {
     blocks,
