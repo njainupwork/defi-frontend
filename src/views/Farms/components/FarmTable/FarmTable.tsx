@@ -125,14 +125,5 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   )
 }
 const tableTh = ['페어명', '예상 연 수익률', '예치 자산', 'DOODA 보상', '']
-/* Remove when you clear 'TODO'
-
-// Description: It needs to be multi-lang, but I don't know how to change to '페어명' style in array.
-// * I try to use "TODO", I hope it will help us better communication.
-// TODO: need to lang "key"
-// Expected result: '페어명', '예상 연 수익률', '예치 자산', 'DOODA 보상', these can be multi lang
-// Test: Access Farm page then change "lang button to 'en' from 'kr' or 'kr' to 'en'.
-
-*/
 
 export default FarmTable
