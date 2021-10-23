@@ -387,6 +387,7 @@ const DoodaMain = () => {
         // return '400%'
         return null
       })
+      // Issues with the farm get highest pool rate fetch
       return '398%'
       // const maxApr = max(aprs)
       // return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
