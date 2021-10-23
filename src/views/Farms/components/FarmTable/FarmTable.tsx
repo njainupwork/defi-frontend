@@ -56,18 +56,7 @@ const TableHead = styled.thead`
 const TableContainer = styled.div`
   position: relative;
 `
-const StyledTh = styled.th`
-  height: 4rem;
-  text-align: left;
-  border-bottom: 1px solid black;
-  // background: red;
-  padding-left: 1rem;
-  padding-top: 1.5rem;
-  margin-right: 2rem;
-`
-const ThContainer = styled.div`
-  background: red;
-`
+
 const StyledTr = styled.tr`
   cursor: pointer;
   border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
