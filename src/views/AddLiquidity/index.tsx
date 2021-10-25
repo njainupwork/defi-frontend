@@ -3,6 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap/sdk'
 import { Button, Text, Flex, AddIcon, CardBody, Message, useModal } from '@doodaswap/uikit'
+import styled from 'styled-components'
 import { RouteComponentProps } from 'react-router-dom'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import { useTranslation } from 'contexts/Localization'
@@ -38,6 +39,39 @@ import ConfirmAddModalBottom from './ConfirmAddModalBottom'
 import { currencyId } from '../../utils/currencyId'
 import PoolPriceBar from './PoolPriceBar'
 import Page from '../Page'
+
+const TipIcon = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+`
+const StyledSwapTipContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.doodaPrimary};
+  padding: 2rem 2rem;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1rem 0rem;
+  position: relative;
+`
+const StyledButton = styled(Button)`
+  font-family: Roboto;
+  border-radius: 2px !important;
+`
+const IconContainer = styled.div`
+  width: auto;
+  position: absolute;
+  top: 33%;
+  border: 2px solid #fff;
+  z-index: 100;
+  left: 18%;
+  background: #f1f3f5;
+  border-radius: 2rem;
+  padding: 0px;
+`
+const BelowCurrencyInput = styled.div`
+  position: relative;
+  top: -1.9rem;
+`
 
 export default function AddLiquidity({
   match: {
@@ -326,7 +360,24 @@ export default function AddLiquidity({
           )}
           backTo="/pool"
         />
-        <CardBody>
+        <StyledSwapTipContainer>
+          <TipIcon>
+            <svg width="57" height="30" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                opacity="0.3"
+                d="M22.748 5.49316H14.4727V28H8.90625V5.49316H0.742188V0.984375H22.748V5.49316ZM31.0984 28H25.532V0.984375H31.0984V28ZM41.0816 18.4814V28H35.5152V0.984375H46.0542C48.0829 0.984375 49.8641 1.35547 51.398 2.09766C52.9442 2.83984 54.1317 3.89746 54.9605 5.27051C55.7892 6.63118 56.2036 8.18359 56.2036 9.92773C56.2036 12.5749 55.2945 14.6654 53.4761 16.1992C51.6701 17.7207 49.1652 18.4814 45.9614 18.4814H41.0816ZM41.0816 13.9727H46.0542C47.5262 13.9727 48.6457 13.6263 49.4126 12.9336C50.1919 12.2409 50.5816 11.2513 50.5816 9.96484C50.5816 8.64128 50.1919 7.57129 49.4126 6.75488C48.6333 5.93848 47.5571 5.5179 46.1841 5.49316H41.0816V13.9727Z"
+                fill="white"
+              />
+            </svg>
+          </TipIcon>
+
+          <Text color="#fff" fontSize="14px">
+            {t(
+              'By participating in the liquidity offering, you will receive Pool tokens. These tokens will reward you with commissions proportional to the liquidity you are offering.',
+            )}
+          </Text>
+        </StyledSwapTipContainer>
+        <CardBody style={{ position: 'relative' }}>
           <AutoColumn gap="20px">
             {noLiquidity && (
               <ColumnCenter>
@@ -354,25 +405,29 @@ export default function AddLiquidity({
               showCommonBases
             />
             <ColumnCenter>
-              <AddIcon width="16px" />
+              <IconContainer>
+                <AddIcon width="25px" />
+              </IconContainer>
             </ColumnCenter>
-            <CurrencyInputPanel
-              value={formattedAmounts[Field.CURRENCY_B]}
-              onUserInput={onFieldBInput}
-              onCurrencySelect={handleCurrencyBSelect}
-              onMax={() => {
-                onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
-              }}
-              showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
-              currency={currencies[Field.CURRENCY_B]}
-              id="add-liquidity-input-tokenb"
-              showCommonBases
-            />
+            <BelowCurrencyInput>
+              <CurrencyInputPanel
+                value={formattedAmounts[Field.CURRENCY_B]}
+                onUserInput={onFieldBInput}
+                onCurrencySelect={handleCurrencyBSelect}
+                onMax={() => {
+                  onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
+                }}
+                showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
+                currency={currencies[Field.CURRENCY_B]}
+                id="add-liquidity-input-tokenb"
+                showCommonBases
+              />
+            </BelowCurrencyInput>
             {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
               <>
                 <LightCard padding="0px" borderRadius="20px">
                   <RowBetween padding="1rem">
-                    <Text fontSize="14px">
+                    <Text fontSize="14px" color="doodaDark">
                       {noLiquidity ? t('Initial prices and pool share') : t('Prices and pool share')}
                     </Text>
                   </RowBetween>{' '}
@@ -389,9 +444,9 @@ export default function AddLiquidity({
             )}
 
             {addIsUnsupported ? (
-              <Button disabled mb="4px">
+              <StyledButton disabled mb="4px">
                 {t('Unsupported Asset')}
-              </Button>
+              </StyledButton>
             ) : !account ? (
               <ConnectWalletButton />
             ) : (
@@ -403,7 +458,7 @@ export default function AddLiquidity({
                   isValid && (
                     <RowBetween>
                       {approvalA !== ApprovalState.APPROVED && (
-                        <Button
+                        <StyledButton
                           onClick={approveACallback}
                           disabled={approvalA === ApprovalState.PENDING}
                           width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
@@ -413,10 +468,10 @@ export default function AddLiquidity({
                           ) : (
                             t('Enable %asset%', { asset: currencies[Field.CURRENCY_A]?.symbol })
                           )}
-                        </Button>
+                        </StyledButton>
                       )}
                       {approvalB !== ApprovalState.APPROVED && (
-                        <Button
+                        <StyledButton
                           onClick={approveBCallback}
                           disabled={approvalB === ApprovalState.PENDING}
                           width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
@@ -426,11 +481,11 @@ export default function AddLiquidity({
                           ) : (
                             t('Enable %asset%', { asset: currencies[Field.CURRENCY_B]?.symbol })
                           )}
-                        </Button>
+                        </StyledButton>
                       )}
                     </RowBetween>
                   )}
-                <Button
+                <StyledButton
                   variant={
                     !isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]
                       ? 'danger'
@@ -446,7 +501,7 @@ export default function AddLiquidity({
                   disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
                 >
                   {error ?? t('Supply')}
-                </Button>
+                </StyledButton>
               </AutoColumn>
             )}
           </AutoColumn>
@@ -454,7 +509,7 @@ export default function AddLiquidity({
       </AppBody>
       {!addIsUnsupported ? (
         pair && !noLiquidity && pairState !== PairState.INVALID ? (
-          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
+          <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '456px', marginTop: '1rem' }}>
             <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
           </AutoColumn>
         ) : null
