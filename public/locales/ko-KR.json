@@ -1507,6 +1507,9 @@
   "My Status": "내 상태",
   "Go": "바로가기",
   "DISTRIBUTED DOODA/BLOCK": "DISTRIBUTED DOODA/BLOCK",
+  "Pairname": "페어이름",
+  "APR": "예상 연 수익률",
+  "DOODA Earned": "DOODA 보상"
   "By participating in the liquidity offering, you will receive Pool tokens. These tokens will reward you with commissions proportional to the liquidity you are offering.": "유동성 제공에 참여하시면 Pool 토큰을 받게 됩니다. 이 토큰을 통해 제공 중인 유동성에 비례하여 수수료를 보상 받을 수 있습니다.",
   "By adding liquidity, you will receive a percentage of your total liquidity share based on your participating assets. Fees generated from the liquidity pool are compensated in proportion to my participation stake.":"유동성을 추가하면 전체 유동성 점유율 대비 내 참여 자산에 따라 일정 비율의 지분을 얻게 됩니다. 해당 유동성 Pool에서 발생된 수수료는 내 참여 지분에 비례하여 보상됩니다."
 }
