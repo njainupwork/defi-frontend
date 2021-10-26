@@ -1,17 +1,34 @@
-import React from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Flex, Heading, Button, LogoWithTextIcon } from '@doodaswap/uikit'
+import { Flex, Heading, Button, LogoWithTextIcon, Skeleton, Text } from '@doodaswap/uikit'
 import { DoodaTextOnlyLogo } from 'components/Logo'
+import { ChainId } from '@pancakeswap/sdk'
+import max from 'lodash/max'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+import { useAppDispatch } from 'state'
+import { useFarms, usePriceCakeBusd } from 'state/farms/hooks'
+import { getBalanceNumber, getBalanceAmount } from 'utils/formatBalance'
+import { getOldCakeAddress } from 'utils/oldAddressHelpers'
+
+import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+
+import { fetchFarmsPublicDataAsync, nonArchivedFarms } from 'state/farms'
 import useTheme from 'hooks/useTheme'
+import BigNumber from 'bignumber.js'
 import { RightArrow, CarosalMain, CarosalSub } from 'components/DoodaIcon'
+// import getStats hooks for TVL data
+import { useGetStats } from 'hooks/api'
 import CardBackground from 'components/Dooda/assets/CardBackground.png'
+import useIntersectionObserver from 'hooks/useOldIntersectionObserver'
+import { getFarmApr } from 'utils/apr'
+
 import DoodaFarmedStakingCard from './DoodaFarmStakingCard'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 import CompositeImage, { getSrcSet, CompositeImageProps } from './CompositeImage'
+
 import {
   DoodaHeading,
   DoodaSubText,
@@ -298,16 +315,6 @@ const RightEachCard2 = styled.div`
   }
 `
 
-const DollorIndicator = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 36px;
-  letter-spacing: -0.02em;
-  color: #cad0d7;
-`
-
 const imagePath = '/images/home/lunar-bunny/'
 const imageSrc = 'bunny'
 
@@ -324,14 +331,81 @@ const DoodaMain = () => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { theme } = useTheme()
+  // stat
+  const totalSupply = useTotalSupply()
+  const burnedBalance = getBalanceNumber(useBurnedBalance(getOldCakeAddress()))
+  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+
+  // tvl homepage data
+  const data = useGetStats()
+  const tvl = data ? data.tvl.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
+
+  // apr card functions
+  const [isFetchingFarmData, setIsFetchingFarmData] = useState(true)
+  const { data: farmsLP } = useFarms()
+  const cakePrice = usePriceCakeBusd()
+  const dispatch = useAppDispatch()
+  // console.log(cakePrice, 'hi')
+  // const { observerRef, isIntersecting } = useIntersectionObserver()
+
+  // Fetch farm data once to get the max APR
+
+  // useEffect(() => {
+  //   const fetchFarmData = async () => {
+  //     try {
+  //       await dispatch(fetchFarmsPublicDataAsync(nonArchivedFarms.map((nonArchivedFarm) => nonArchivedFarm.pid)))
+  //     } finally {
+  //       setIsFetchingFarmData(false)
+  //     }
+  //   }
+
+  //   // if (isIntersecting) {
+  //   //   fetchFarmData()
+  //   // }
+  //   fetchFarmData()
+  // }, [dispatch, setIsFetchingFarmData])
+
+  const highestApr = useMemo(() => {
+    if (cakePrice.gt(0)) {
+      const aprs = farmsLP.map((farm) => {
+        // Filter inactive farms, because their theoretical APR is super high. In practice, it's 0.
+        // if (farm.pid !== 0 && farm.multiplier !== '0X' && farm.lpTotalInQuoteToken && farm.oldQuoteToken.busdPrice) {
+        //   const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.oldQuoteToken.busdPrice)
+        //   const { cakeRewardsApr, lpRewardsApr } = getFarmApr(
+        //     new BigNumber(farm.poolWeight),
+        //     cakePrice,
+        //     totalLiquidity,
+        //     farm.lpAddresses[ChainId.MAINNET],
+        //   )
+        //   return cakeRewardsApr + lpRewardsApr
+        // }
+        // if (farm.pid !== 0) {
+        //   console.log('abc')
+        // }
+        // console.log(farm, 'eachFarm apr')
+
+        // return '400%'
+        return null
+      })
+      // Issues with the farm get highest pool rate fetch
+      return '398%'
+      // const maxApr = max(aprs)
+      // return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
+    }
+    return null
+    // return '200%'
+  }, [cakePrice, farmsLP])
+
+  // const aprText = highestApr || '-'
+  // const earnAprText = t('Earn up to %highestApr% APR in Farms', { highestApr: aprText })
+  // const [earnUpTo, InFarms] = earnAprText.split(aprText)
+
   return (
     <>
       <Flex
         position="relative"
-        // flexDirection={['column', null, null, 'row']}
         alignItems={['center', null, null, 'center']}
         justifyContent="center"
-        // mt={[account ? '280px' : '50px', null, 0]}
         id="homepage-hero"
       >
         <Flex flex="2" flexDirection="column">
@@ -346,13 +420,13 @@ const DoodaMain = () => {
               alignItems={['flex-start', 'center', 'center', 'center']}
             >
               <DmainLeft>
-                <StyledDoodaHeadAlt>아프로디테 (AFD) NFT 옥션이 시작되었습니다!</StyledDoodaHeadAlt>
+                <StyledDoodaHeadAlt>{t('Started Aphrodite (AFD) NFT collection!')}</StyledDoodaHeadAlt>
                 <Flex
                   flex="2"
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaSubTextLeft>총 46종의 NFT를 만나보세요. 48시간 후에 시작됩니다.</DoodaSubTextLeft>
+                  <DoodaSubTextLeft>{t('Check 46 spices NFT, it start 48hours later')}</DoodaSubTextLeft>
                   <StyledRightArrow isDark={theme.isDark} />
                 </Flex>
                 <Flex
@@ -360,7 +434,7 @@ const DoodaMain = () => {
                   flexDirection={['column-reverse', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaDefaultBtn>바로가기</DoodaDefaultBtn>
+                  <DoodaDefaultBtn>{t('Go')}</DoodaDefaultBtn>
                 </Flex>
                 <CarosalContainer>
                   <CarosalMain isDark={theme.isDark} />
@@ -371,21 +445,38 @@ const DoodaMain = () => {
                 <DoodaFarmedStakingCard />
               </DmainCenter>
               <DmainRight>
-                <StyledDoodaHeadAlt2>DOODA Stats</StyledDoodaHeadAlt2>
+                <StyledDoodaHeadAlt2>{t('DOODA Stats')}</StyledDoodaHeadAlt2>
                 <Flex flex="2" flexDirection={['column', null, null, 'column']}>
-                  {DoodaStatData.map((eachData, index) => (
-                    <DoodaStatEachRow
-                      style={{
-                        backgroundColor: `${(index + 1) % 2 !== 0 ? '#F1F3F5' : '#DEE2E6'}`,
-                      }}
-                    >
-                      <DoodaStatLabel>{eachData.label}</DoodaStatLabel>
-                      <DoodaStatValue>{eachData.value} </DoodaStatValue>
-                    </DoodaStatEachRow>
-                  ))}
+                  <DoodaStatEachRow
+                    // style={{
+                    //   backgroundColor: `${(index + 1) % 2 !== 0 ? '#F1F3F5' : '#DEE2E6'}`,
+                    // }}
+                    style={{ backgroundColor: '#F1F3F5' }}
+                  >
+                    <DoodaStatLabel>{t('USD MARKET CAP')}</DoodaStatLabel>
+                    <DoodaStatValue>$ 173,677,628</DoodaStatValue>
+                  </DoodaStatEachRow>
+                  <DoodaStatEachRow style={{ backgroundColor: '#DEE2E6' }}>
+                    <DoodaStatLabel>{t('TOTAL DOODA SUPPLY')}</DoodaStatLabel>
+                    <DoodaStatValue>{cakeSupply}</DoodaStatValue>
+                  </DoodaStatEachRow>
+
+                  <DoodaStatEachRow style={{ backgroundColor: '#F1F3F5' }}>
+                    <DoodaStatLabel>{t('TOTAL CAKE BURNED')}</DoodaStatLabel>
+                    <DoodaStatValue>{burnedBalance}</DoodaStatValue>
+                  </DoodaStatEachRow>
+                  <DoodaStatEachRow style={{ backgroundColor: '#DEE2E6' }}>
+                    <DoodaStatLabel>{t('DOODA IN CIRCULATION')}</DoodaStatLabel>
+                    {/* <DoodaStatValue>{burnedBalance}</DoodaStatValue> */}
+                  </DoodaStatEachRow>
+                  <DoodaStatEachRow style={{ backgroundColor: '#F1F3F5' }}>
+                    <DoodaStatLabel>{t('DISTRIBUTED DOODA/BLOCK')}</DoodaStatLabel>
+                    <DoodaStatValue>{20}</DoodaStatValue>
+                  </DoodaStatEachRow>
+                  {/* ))} */}
                   <DoodaStatStyledButton>
                     <DoodaHeading style={{ color: '#F1F3F5', fontSize: '14px', marginTop: '2px' }}>
-                      더 알아보기
+                      {t('Learn more')}
                     </DoodaHeading>
                   </DoodaStatStyledButton>
                 </Flex>
@@ -404,11 +495,15 @@ const DoodaMain = () => {
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['flex-start', null, null, 'center']}
                 >
-                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>예상 연 수익률</DoodaSubText>
-                  <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn>
+                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                    {t('Earn up to APR  in farms')}
+                  </DoodaSubText>
+                  <DoodaStyledRightBtn>{t('Apply')}</DoodaStyledRightBtn>
                 </Flex>
                 <DoodaStyledLabel>
-                  419.40<span>&nbsp;%</span>
+                  {/* 419.40 */}
+                  {highestApr}
+                  {/* <span>&nbsp;%</span> */}
                 </DoodaStyledLabel>
               </DoodaLeftBelow>
               <DoodaRightBelow>
@@ -423,13 +518,11 @@ const DoodaMain = () => {
                       flexDirection={['column', null, null, 'row']}
                       alignItems={['flex-start', null, null, 'center']}
                     >
-                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>예치된 총 자산 (TVL)</DoodaSubText>
-                      {/* <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn> */}
+                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                        {t('Total Value Locked')}
+                      </DoodaSubText>
                     </Flex>
-                    <DoodaStyledLabel>
-                      <DollorIndicator>$&nbsp;</DollorIndicator>
-                      531,067,356
-                    </DoodaStyledLabel>
+                    <DoodaStyledLabel>{data ? <>{`$${tvl}`}</> : <Skeleton height={66} />}</DoodaStyledLabel>
                   </RightEachCard>
                   <RightEachCard2>
                     <Flex
@@ -437,13 +530,12 @@ const DoodaMain = () => {
                       flexDirection={['row', null, null, 'row']}
                       alignItems={['flex-start', null, null, 'center']}
                     >
-                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>내 참여 자산</DoodaSubText>
-                      <DoodaStyledRightBtn>내 상태</DoodaStyledRightBtn>
+                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                        {t('My Applied Assets')}
+                      </DoodaSubText>
+                      <DoodaStyledRightBtn>{t('My Status')}</DoodaStyledRightBtn>
                     </Flex>
-                    <DoodaStyledLabel>
-                      <DollorIndicator>$&nbsp;</DollorIndicator>
-                      531,067,356
-                    </DoodaStyledLabel>
+                    <DoodaStyledLabel>531,067,356</DoodaStyledLabel>
                   </RightEachCard2>
                 </Flex>
               </DoodaRightBelow>
@@ -455,26 +547,4 @@ const DoodaMain = () => {
   )
 }
 
-const DoodaStatData = [
-  {
-    label: 'USD 환산 가치',
-    value: '$ 173,677,628',
-  },
-  {
-    label: 'DOODA 유통 수량',
-    value: '50,416,577',
-  },
-  {
-    label: '소각된 DOODA',
-    value: '11,294,246',
-  },
-  {
-    label: '유동성 공급 중인 자산',
-    value: '$ 391,549,899',
-  },
-  {
-    label: 'DISTRIBUTED DOODA/BLOCK',
-    value: '10',
-  },
-]
 export default DoodaMain

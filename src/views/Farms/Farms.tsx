@@ -1,12 +1,11 @@
 import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
-import { Route, useRouteMatch, useLocation, NavLink } from 'react-router-dom'
+import { Route, useRouteMatch, useLocation } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import {
   Image,
   Heading,
   RowType,
-  Toggle,
   Text,
   Button,
   ArrowForwardIcon,
@@ -404,9 +403,9 @@ const Farms: React.FC = () => {
     )
   }
 
-  const handleSortOptionChange = (option: OptionProps): void => {
-    setSortOption(option.value)
-  }
+  // const handleSortOptionChange = (option: OptionProps): void => {
+  //   setSortOption(option.value)
+  // }
 
   return (
     <>
@@ -418,12 +417,12 @@ const Farms: React.FC = () => {
             alignItems={['flex-start', null, null, 'flex-start']}
           >
             <DoodaFarmHeading as="h1" scale="xxl" color="doodaPrimary" mb="24px">
-              {t('파밍')}
+              {t('Farming')}
             </DoodaFarmHeading>
             <DoodaFarmText scale="lg" color="doodaText">
-              {t('자산을 예치하고')}
+              {t('Deposit asset')}
               <br />
-              {t('DOODA 토큰을 보상 받아보세요.')}
+              {t('GET Reward DOODA')}
             </DoodaFarmText>
           </Flex>
           <Image src="/images/farm/farmImage.png" width={400} height={350} />

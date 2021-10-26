@@ -73,7 +73,7 @@ const FarmedStakingCard = () => {
           <Label>{t('CAKE in Wallet')}:</Label>
           <CakeWalletBalance />
         </Block>
-        <Actions>
+        <Actions style={{ background: 'red' }}>
           {account ? (
             <Button
               id="harvest-all"

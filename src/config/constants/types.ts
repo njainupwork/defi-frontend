@@ -13,6 +13,13 @@ export interface Address {
   97?: string
   56: string
 }
+export interface oldCustomToken {
+  symbol: string
+  address?: Address
+  decimals?: number
+  projectLink?: string
+  busdPrice?: string
+}
 
 export interface SerializedToken {
   chainId: number
@@ -109,6 +116,7 @@ export interface SerializedFarmConfig extends FarmConfigBaseProps {
 export interface DeserializedFarmConfig extends FarmConfigBaseProps {
   token: Token
   quoteToken: Token
+  // oldQuoteToken: oldCustomToken
 }
 
 interface PoolConfigBaseProps {

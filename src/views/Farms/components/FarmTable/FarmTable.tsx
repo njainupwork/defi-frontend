@@ -56,18 +56,7 @@ const TableHead = styled.thead`
 const TableContainer = styled.div`
   position: relative;
 `
-const StyledTh = styled.th`
-  height: 4rem;
-  text-align: left;
-  border-bottom: 1px solid black;
-  // background: red;
-  padding-left: 1rem;
-  padding-top: 1.5rem;
-  margin-right: 2rem;
-`
-const ThContainer = styled.div`
-  background: red;
-`
+
 const StyledTr = styled.tr`
   cursor: pointer;
   border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
@@ -114,7 +103,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
             <TableHead>
               <StyledThTr>
                 {tableTh.map((thRow) => (
-                  <td>{thRow}</td>
+                  <td>{t(thRow)}</td>
                 ))}
               </StyledThTr>
             </TableHead>
@@ -135,6 +124,6 @@ const FarmTable: React.FC<ITableProps> = (props) => {
     </Container>
   )
 }
-const tableTh = ['페어명', '예상 연 수익률', '예치 자산', 'DOODA 보상', '']
+const tableTh = ['Pairname', 'APR', 'Liquidity', 'DOODA Earned', '']
 
 export default FarmTable
