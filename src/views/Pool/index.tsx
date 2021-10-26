@@ -14,7 +14,34 @@ import { AppHeader, AppBody } from '../../components/App'
 import Page from '../Page'
 
 const Body = styled(CardBody)`
-  background-color: ${({ theme }) => theme.colors.dropdownDeep};
+  // background-color: ${({ theme }) => theme.colors.dropdownDeep};
+  background-color: #fff;
+`
+const StyledBtn = styled(Button)`
+  border-radius: 2px;
+  color: #fff;
+  padding: 1rem 3rem;
+  background-color: ${({ theme }) => theme.colors.doodaPrimary};
+`
+
+const StyledSecondaryButton = styled(Button)`
+  color: #4d5560;
+  border-radius: 2rem;
+  border: 2px solid #4d5560;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`
+const StyledSwapTipContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.doodaPrimary};
+  padding: 2rem 2rem;
+  text-align: center;
+  position: relative;
+`
+const TipIcon = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
 `
 
 export default function Pool() {
@@ -54,14 +81,14 @@ export default function Pool() {
   const renderBody = () => {
     if (!account) {
       return (
-        <Text color="textSubtle" textAlign="center">
+        <Text color="doodaPrimary" textAlign="center">
           {t('Connect to a wallet to view your liquidity.')}
         </Text>
       )
     }
     if (v2IsLoading) {
       return (
-        <Text color="textSubtle" textAlign="center">
+        <Text color="doodaPrimary" textAlign="center">
           <Dots>{t('Loading')}</Dots>
         </Text>
       )
@@ -76,7 +103,7 @@ export default function Pool() {
       ))
     }
     return (
-      <Text color="textSubtle" textAlign="center">
+      <Text color="doodaPrimary" textAlign="center">
         {t('No liquidity found.')}
       </Text>
     )
@@ -90,19 +117,19 @@ export default function Pool() {
           {renderBody()}
           {account && !v2IsLoading && (
             <Flex flexDirection="column" alignItems="center" mt="24px">
-              <Text color="textSubtle" mb="8px">
+              <Text color="doodaPrimary" mb="8px">
                 {t("Don't see a pool you joined?")}
               </Text>
-              <Button id="import-pool-link" variant="secondary" scale="sm" as={Link} to="/find">
+              <StyledSecondaryButton id="import-pool-link" variant="secondary" scale="sm" as={Link} to="/find">
                 {t('Find other LP tokens')}
-              </Button>
+              </StyledSecondaryButton>
             </Flex>
           )}
         </Body>
         <CardFooter style={{ textAlign: 'center' }}>
-          <Button id="join-pool-button" as={Link} to="/add" width="100%" startIcon={<AddIcon color="white" />}>
+          <StyledBtn id="join-pool-button" as={Link} to="/add" width="100%" startIcon={<AddIcon color="white" />}>
             {t('Add Liquidity')}
-          </Button>
+          </StyledBtn>
         </CardFooter>
       </AppBody>
     </Page>

@@ -22,6 +22,12 @@ const AppHeaderContainer = styled(Flex)`
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
+const StyledHeading = styled(Heading)`
+  letter-spacing: -0.8px;
+  color: #4d5560;
+  font-family: Roboto;
+  font-weight: 600;
+`
 
 const AppHeader: React.FC<Props> = ({ title, subtitle, helper, backTo, noConfig = false }) => {
   const [expertMode] = useExpertModeManager()
@@ -35,14 +41,14 @@ const AppHeader: React.FC<Props> = ({ title, subtitle, helper, backTo, noConfig 
           </IconButton>
         )}
         <Flex flexDirection="column">
-          <Heading as="h2" mb="8px">
+          <StyledHeading as="h2" mb="8px">
             {title}
-          </Heading>
+          </StyledHeading>
           <Flex alignItems="center">
             {helper && <QuestionHelper text={helper} mr="4px" placement="top-start" />}
-            <Text color="textSubtle" fontSize="14px">
+            {/* <Text color="textSubtle" fontSize="14px">
               {subtitle}
-            </Text>
+            </Text> */}
           </Flex>
         </Flex>
       </Flex>
@@ -51,7 +57,7 @@ const AppHeader: React.FC<Props> = ({ title, subtitle, helper, backTo, noConfig 
           <NotificationDot show={expertMode}>
             <GlobalSettings />
           </NotificationDot>
-          <Transactions />
+          {/* <Transactions /> */}
         </Flex>
       )}
     </AppHeaderContainer>
