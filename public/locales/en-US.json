@@ -1506,5 +1506,7 @@
   "DISTRIBUTED DOODA/BLOCK": "DISTRIBUTED DOODA/BLOCK",
   "Pairname": "Pairname",
   "APR": "APR",
-  "DOODA Earned": "DOODA Earned"
+  "DOODA Earned": "DOODA Earned",
+  "By participating in the liquidity offering, you will receive Pool tokens. These tokens will reward you with commissions proportional to the liquidity you are offering.": "By participating in the liquidity offering, you will receive Pool tokens. These tokens will reward you with commissions proportional to the liquidity you are offering.",
+  "By adding liquidity, you will receive a percentage of your total liquidity share based on your participating assets. Fees generated from the liquidity pool are compensated in proportion to my participation stake.": "By adding liquidity, you will receive a percentage of your total liquidity share based on your participating assets. Fees generated from the liquidity pool are compensated in proportion to my participation stake."
 }
