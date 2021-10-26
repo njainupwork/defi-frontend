@@ -4,20 +4,24 @@ import { useTranslation } from 'contexts/Localization'
 import { escapeRegExp } from '../../utils'
 
 const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: string }>`
-  color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
+  // color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
   width: 0;
+  font-family: Roboto;
   position: relative;
   font-weight: 500;
   outline: none;
   border: none;
   flex: 1 1 auto;
   background-color: transparent;
-  font-size: 16px;
-  text-align: ${({ align }) => align && align};
+  font-size: 24px;
+  line-height: 42px;
+  letter-spacing: -0.02em;
+  color: ${({ theme }) => theme.colors.doodaDark};
+  text-align: right;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0px;
+  padding: 0rem 1.2rem 0rem 0rem;
   -webkit-appearance: textfield;
 
   ::-webkit-search-decoration {
@@ -34,7 +38,8 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: s
   }
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.textSubtle};
+    // color: ${({ theme }) => theme.colors.textSubtle};
+    color: #dee2e6;
   }
 `
 

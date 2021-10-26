@@ -32,6 +32,15 @@ import Dots from '../Loader/Dots'
 const FixedHeightRow = styled(RowBetween)`
   height: 24px;
 `
+const StyledLightCard = styled.div`
+  padding: 1rem 4rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+  background: #ffffff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+`
 
 interface PositionCardProps extends CardProps {
   pair: Pair
@@ -128,16 +137,19 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
           </CardBody>
         </Card>
       ) : (
-        <LightCard>
-          <Text fontSize="14px" style={{ textAlign: 'center' }}>
-            <span role="img" aria-label="pancake-icon">
+        <StyledLightCard>
+          <Text fontSize="14px" style={{ textAlign: 'center' }} color="#99A2AB">
+            {/* <span role="img" aria-label="pancake-icon">
               🥞
-            </span>{' '}
-            {t(
+            </span>{' '} */}
+            {/* {t(
               "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.",
+            )} */}
+            {t(
+              'By adding liquidity, you will receive a percentage of your total liquidity share based on your participating assets. Fees generated from the liquidity pool are compensated in proportion to my participation stake.',
             )}
           </Text>
-        </LightCard>
+        </StyledLightCard>
       )}
     </>
   )

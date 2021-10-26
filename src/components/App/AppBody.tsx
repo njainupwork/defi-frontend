@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Card } from '@doodaswap/uikit'
 
 export const BodyWrapper = styled(Card)`
-  max-width: 436px;
+  max-width: 456px;
+  margin-top: 3rem;
   width: 100%;
   z-index: 1;
 `
