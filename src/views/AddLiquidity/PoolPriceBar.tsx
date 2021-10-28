@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@pancakeswap/sdk'
+import { Currency, Percent, Price } from '@doodaswap/sdk'
 import React from 'react'
 import { Text } from '@doodaswap/uikit'
 import { useTranslation } from 'contexts/Localization'

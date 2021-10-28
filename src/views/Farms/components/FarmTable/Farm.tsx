@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useFarmUser } from 'state/farms/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { Text } from '@doodaswap/uikit'
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@doodaswap/sdk'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { TokenPairImage } from 'components/TokenImage'
 

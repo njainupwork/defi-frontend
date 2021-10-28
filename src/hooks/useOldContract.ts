@@ -27,7 +27,7 @@ import {
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts' //
-import { ChainId, WETH } from '@pancakeswap/sdk' //
+import { ChainId, WETH } from '@doodaswap/sdk' //
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json' //
 // modified
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from 'config/constants/multicall'

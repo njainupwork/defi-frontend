@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from '@doodaswap/sdk'
 import { Text } from '@doodaswap/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'

@@ -16,7 +16,7 @@ import {
   // Table,
 } from '@doodaswap/uikit'
 
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from '@doodaswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
 import Page from 'components/Layout/Page'
