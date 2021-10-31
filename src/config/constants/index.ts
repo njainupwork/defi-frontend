@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token } from '@doodaswap/sdk'
 import { mainnetTokens, testnetTokens } from './tokens'
 
-export const ROUTER_ADDRESS = '0x863fa6695ef700eB6415460a4ba9dF2664eAE147'
+export const ROUTER_ADDRESS = '0xF4d81360FC84226816c8711E0Cb432484D301BC7'
 
 // a list of tokens by chain
 type ChainTokenList = {
