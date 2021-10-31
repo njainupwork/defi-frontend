@@ -12,7 +12,7 @@ describe('Add Liquidity', () => {
   })
 
   it('loads the WBNB and tokens', () => {
-    cy.visit('/add/0xCde538bd8954eAd01C56194F5C9905B310a5bd0E/0x2904940De789B2034D5bA883bD049BA71d54Ef51')
+    cy.visit('/add/0xcde538bd8954ead01c56194f5c9905b310a5bd0e/0x2904940De789B2034D5bA883bD049BA71d54Ef51')
     cy.get('#add-liquidity-input-tokena').should('contain.text', 'WBNB')
     cy.get('#add-liquidity-input-tokenb').should('contain.text', 'DOODA')
   })
@@ -63,18 +63,18 @@ describe('Add Liquidity', () => {
   })
 
   it('redirects /add/WBNB-token to /add/WBNB/token', () => {
-    cy.visit('/add/0xCde538bd8954eAd01C56194F5C9905B310a5bd0E-0x2904940De789B2034D5bA883bD049BA71d54Ef51')
+    cy.visit('/add/0xcde538bd8954ead01c56194f5c9905b310a5bd0e-0x2904940De789B2034D5bA883bD049BA71d54Ef51')
     cy.url().should(
       'contain',
-      '/add/0xCde538bd8954eAd01C56194F5C9905B310a5bd0E/0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+      '/add/0xcde538bd8954ead01c56194f5c9905b310a5bd0e/0x2904940De789B2034D5bA883bD049BA71d54Ef51',
     )
   })
 
   it('redirects /add/token-WBNB to /add/token/WBNB', () => {
-    cy.visit('/add/0x2904940De789B2034D5bA883bD049BA71d54Ef51-0xCde538bd8954eAd01C56194F5C9905B310a5bd0E')
+    cy.visit('/add/0x2904940De789B2034D5bA883bD049BA71d54Ef51-0xcde538bd8954ead01c56194f5c9905b310a5bd0e')
     cy.url().should(
       'contain',
-      '/add/0x2904940De789B2034D5bA883bD049BA71d54Ef51/0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
+      '/add/0x2904940De789B2034D5bA883bD049BA71d54Ef51/0xcde538bd8954ead01c56194f5c9905b310a5bd0e',
     )
   })
 })

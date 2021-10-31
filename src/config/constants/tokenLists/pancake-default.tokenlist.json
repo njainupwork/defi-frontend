@@ -13,7 +13,7 @@
     {
       "name": "WBNB Token",
       "symbol": "WBNB",
-      "address": "0xCde538bd8954eAd01C56194F5C9905B310a5bd0E",
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
@@ -33,6 +33,14 @@
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0xC0063D362A8EA40Cb32A774c75683429c2B4860c",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     },
     {
       "name": "Ethereum Token",
@@ -153,14 +161,6 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7.png"
-    },
-    {
-      "name": "BUSD Token",
-      "symbol": "BUSD",
-      "address": "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     }
   ]
 }
