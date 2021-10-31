@@ -6,11 +6,11 @@ describe('Send', () => {
 
   it('should redirect with url params', () => {
     cy.visit(
-      '/send?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      '/send?inputCurrency=0xC0063D362A8EA40Cb32A774c75683429c2B4860c&outputCurrency=0x2904940De789B2034D5bA883bD049BA71d54Ef51',
     )
     cy.url().should(
       'contain',
-      '/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      '/swap?inputCurrency=0xC0063D362A8EA40Cb32A774c75683429c2B4860c&outputCurrency=0x2904940De789B2034D5bA883bD049BA71d54Ef51',
     )
   })
 })

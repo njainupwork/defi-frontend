@@ -15,14 +15,14 @@ interface SerializedTokenList {
 export const mainnetTokens = {
   wbnb: new Token(
     MAINNET,
-    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
     18,
     'WBNB',
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  bnb: new Token(MAINNET, '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -61,7 +61,7 @@ export const mainnetTokens = {
   ),
   busd: new Token(
     MAINNET,
-    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    '0xC0063D362A8EA40Cb32A774c75683429c2B4860c',
     18,
     'BUSD',
     'Binance USD',
@@ -1636,12 +1636,29 @@ export const mainnetTokens = {
     'NAOSToken',
     'https://naos.finance/',
   ),
+  dooda: new Token(
+    MAINNET,
+    '0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+    18,
+    'DOODA',
+    'Doodaswap Token',
+    'https://www.doodaswap.finace/',
+  ),
+  troad: new Token(
+    MAINNET,
+    '0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7',
+    18,
+    'TROAD',
+    'Techroadaswap Token',
+    'https://www.techroad.finace/',
+  ),
 }
 
 export const testnetTokens = {
+  bnb: new Token(TESTNET, '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   wbnb: new Token(
     TESTNET,
-    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
     18,
     'WBNB',
     'Wrapped BNB',
@@ -1657,7 +1674,7 @@ export const testnetTokens = {
   ),
   busd: new Token(
     TESTNET,
-    '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
+    '0xC0063D362A8EA40Cb32A774c75683429c2B4860c',
     18,
     'BUSD',
     'Binance USD',
@@ -1678,6 +1695,22 @@ export const testnetTokens = {
     'BAKE',
     'Bakeryswap Token',
     'https://www.bakeryswap.org/',
+  ),
+  dooda: new Token(
+    TESTNET,
+    '0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+    18,
+    'DOODA',
+    'Doodaswap Token',
+    'https://www.doodaswap.finace/',
+  ),
+  troad: new Token(
+    TESTNET,
+    '0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7',
+    18,
+    'TROAD',
+    'Techroadaswap Token',
+    'https://www.techroad.finace/',
   ),
 }
 

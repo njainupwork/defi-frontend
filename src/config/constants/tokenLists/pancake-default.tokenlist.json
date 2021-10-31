@@ -13,18 +13,26 @@
     {
       "name": "WBNB Token",
       "symbol": "WBNB",
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "address": "0xCde538bd8954eAd01C56194F5C9905B310a5bd0E",
       "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
+    },
+    {
+      "name": "WBNB Token",
+      "symbol": "WBNB",
+      "address": "0xCde538bd8954eAd01C56194F5C9905B310a5bd0E",
+      "chainId": 97,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
     },
     {
       "name": "BUSD Token",
       "symbol": "BUSD",
-      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "address": "0xC0063D362A8EA40Cb32A774c75683429c2B4860c",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.png"
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     },
     {
       "name": "Ethereum Token",
@@ -133,10 +141,26 @@
     {
       "name": "Dooda",
       "symbol": "DOODA",
-      "address": "0x0299af57a3bdd8575a603e4024711c058f5cb187",
+      "address": "0x2904940De789B2034D5bA883bD049BA71d54Ef51",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/0x0299af57a3bdd8575a603e4024711c058f5cb187.png"
+      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x2904940De789B2034D5bA883bD049BA71d54Ef51.png"
+    },
+    {
+      "name": "Troad",
+      "symbol": "TROAD",
+      "address": "0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7.png"
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     }
   ]
 }

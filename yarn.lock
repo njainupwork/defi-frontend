@@ -1535,7 +1535,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@doodaswap-libs/dooda-swap-core@^0.1.2":
+"@doodaswap-libs/dooda-swap-core@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@doodaswap-libs/dooda-swap-core/-/dooda-swap-core-0.1.3.tgz#c35f331c7bf0834a11058ed1cf0393b78be70b42"
   integrity sha512-H3oswGz/7h56wv2mAN/uBkGsddg/onY2dzVr5XOSjs+e7WnDeB9s7ggYO+LW486jWKR2FBb2ZVKsebKUcOvEZg==
@@ -1558,12 +1558,12 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@doodaswap/sdk@^2.4.8":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@doodaswap/sdk/-/sdk-2.4.8.tgz#a9de06ba9e28852cf6123e53c4b075c5d437767d"
-  integrity sha512-0nF72aFSfEoLH/zRJ7GFxDpmdXgU58bFZaj5bOPiG2COr8Ye/3BSP09/ojkM5wzqLo10MrhdlHhEXeeZ7DrcSA==
+"@doodaswap/sdk@^2.4.9":
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@doodaswap/sdk/-/sdk-2.4.9.tgz#64268a53260c398e321d84c1cd5ebd75a5e9ddf3"
+  integrity sha512-yOXIaAnamEFeP3b3dcQCJzInhGpIXT88JxjHEKy3XTOlrmX5wtn0iWlcaY1Ez+kC8FEA5oywYNkJwzOJ+V8yEw==
   dependencies:
-    "@doodaswap-libs/dooda-swap-core" "^0.1.2"
+    "@doodaswap-libs/dooda-swap-core" "^0.1.3"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
     jsbi "^3.1.1"

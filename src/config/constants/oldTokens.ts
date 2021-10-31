@@ -19,7 +19,7 @@ export const CAKE: { [chainId: number]: Token } = {
 export const BUSD: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    '0xC0063D362A8EA40Cb32A774c75683429c2B4860c',
     18,
     'BUSD',
     'Binance USD',
@@ -590,7 +590,7 @@ const tokens = {
     symbol: 'wBNB',
     address: {
       56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+      97: '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -760,7 +760,7 @@ const tokens = {
   busd: {
     symbol: 'BUSD',
     address: {
-      56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+      56: '0xC0063D362A8EA40Cb32A774c75683429c2B4860c',
       97: '',
     },
     decimals: 18,
