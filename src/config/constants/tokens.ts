@@ -15,14 +15,14 @@ interface SerializedTokenList {
 export const mainnetTokens = {
   wbnb: new Token(
     MAINNET,
-    '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
     'WBNB',
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -1655,7 +1655,6 @@ export const mainnetTokens = {
 }
 
 export const testnetTokens = {
-  bnb: new Token(TESTNET, '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   wbnb: new Token(
     TESTNET,
     '0xCde538bd8954eAd01C56194F5C9905B310a5bd0E',
