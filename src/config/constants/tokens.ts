@@ -1639,6 +1639,7 @@ export const mainnetTokens = {
 }
 
 export const testnetTokens = {
+  bnb: new Token(TESTNET, '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   wbnb: new Token(
     TESTNET,
     '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
@@ -1678,6 +1679,14 @@ export const testnetTokens = {
     'BAKE',
     'Bakeryswap Token',
     'https://www.bakeryswap.org/',
+  ),
+  dooda: new Token(
+    TESTNET,
+    '0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+    18,
+    'DOODA',
+    'Doodaswap Token',
+    'https://www.doodaswap.finace/',
   ),
 }
 

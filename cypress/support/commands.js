@@ -15,7 +15,7 @@ import { Eip1193Bridge } from '@ethersproject/experimental/lib/eip1193-bridge'
  * And sharing some key here is not safe as somebody can empty it and test will fail
  * For now that test is skipped
  */
-const TEST_PRIVATE_KEY = '0x60aec29d4b415dfeff21e7f7d07ff2aca0e26f129fe52fc4e86f1b943748ff96'
+const TEST_PRIVATE_KEY = 'a439467325f06aad42ed3a454959a3a7101cfe92140abd82b640c46a40b379b3'
 
 // address of the above key
 export const TEST_ADDRESS_NEVER_USE = new Wallet(TEST_PRIVATE_KEY).address
@@ -52,9 +52,9 @@ class CustomizedBridge extends Eip1193Bridge {
     }
     if (method === 'eth_chainId') {
       if (isCallbackForm) {
-        return callback(null, { result: '0x38' })
+        return callback(null, { result: '0x61' })
       }
-      return Promise.resolve('0x38')
+      return Promise.resolve('0x61')
     }
     try {
       const result = await super.send(method, params)
@@ -81,7 +81,7 @@ Cypress.Commands.overwrite('visit', (original, url, options) => {
         options.onBeforeLoad(win)
       }
       win.localStorage.clear()
-      const provider = new JsonRpcProvider('https://bsc-dataseed.binance.org/', 56)
+      const provider = new JsonRpcProvider('https://data-seed-prebsc-2-s3.binance.org:8545/', 97)
       const signer = new Wallet(TEST_PRIVATE_KEY, provider)
       // eslint-disable-next-line no-param-reassign
       win.ethereum = new CustomizedBridge(signer, provider)
