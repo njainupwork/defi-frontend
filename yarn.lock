@@ -1558,10 +1558,10 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@doodaswap/sdk@^2.4.9":
-  version "2.4.9"
-  resolved "https://registry.yarnpkg.com/@doodaswap/sdk/-/sdk-2.4.9.tgz#64268a53260c398e321d84c1cd5ebd75a5e9ddf3"
-  integrity sha512-yOXIaAnamEFeP3b3dcQCJzInhGpIXT88JxjHEKy3XTOlrmX5wtn0iWlcaY1Ez+kC8FEA5oywYNkJwzOJ+V8yEw==
+"@doodaswap/sdk@^2.4.10":
+  version "2.4.10"
+  resolved "https://registry.yarnpkg.com/@doodaswap/sdk/-/sdk-2.4.10.tgz#8ab710b21dc190515b84b56871bdc65deb84b612"
+  integrity sha512-0filfR5UACw5zkUAwE67/XrS1Pr+qcTvLjzIzk2Um13QKjl4VwotRGDThJ0txflUpLbai7swus70PFnTIf8Paw==
   dependencies:
     "@doodaswap-libs/dooda-swap-core" "^0.1.3"
     big.js "^5.2.2"

@@ -13,7 +13,7 @@
     {
       "name": "WBNB Token",
       "symbol": "WBNB",
-      "address": "0xCde538bd8954eAd01C56194F5C9905B310a5bd0E",
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
@@ -141,7 +141,7 @@
     {
       "name": "Dooda",
       "symbol": "DOODA",
-      "address": "0x2904940De789B2034D5bA883bD049BA71d54Ef51",
+      "address": "0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2",
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x2904940De789B2034D5bA883bD049BA71d54Ef51.png"

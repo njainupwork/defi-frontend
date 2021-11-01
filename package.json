@@ -31,7 +31,7 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@doodaswap/sdk": "^2.4.9",
+    "@doodaswap/sdk": "^2.4.10",
     "@doodaswap/uikit": "^0.54.28",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",
