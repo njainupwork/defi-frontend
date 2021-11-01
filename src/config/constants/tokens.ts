@@ -1674,7 +1674,7 @@ export const testnetTokens = {
   ),
   busd: new Token(
     TESTNET,
-    '0xC0063D362A8EA40Cb32A774c75683429c2B4860c',
+    '0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7',
     18,
     'BUSD',
     'Binance USD',
@@ -1682,7 +1682,7 @@ export const testnetTokens = {
   ),
   syrup: new Token(
     TESTNET,
-    '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
+    '0x4951415C71b676e65304bb8063792FCaFE697854',
     18,
     'SYRUP',
     'SyrupBar Token',
@@ -1698,7 +1698,7 @@ export const testnetTokens = {
   ),
   dooda: new Token(
     TESTNET,
-    '0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+    '0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2',
     18,
     'DOODA',
     'Doodaswap Token',

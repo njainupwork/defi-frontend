@@ -18,38 +18,28 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wbnb,
   },
   {
-    pid: 251,
-    lpSymbol: 'DOODA-BNB LP',
+    pid: 1,
+    lpSymbol: 'BNB-BUSD LP',
     lpAddresses: {
-      97: '0x749805cd06710596bf5eec6f8a0b196785be18f0',
+      97: '0x872f6d70d0cf1b0AAb957eD90346DEc66fc19ca0',
+      56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
+    },
+    token: serializedTokens.busd,
+    quoteToken: serializedTokens.wbnb,
+  },
+  {
+    pid: 2,
+    lpSymbol: 'Dooda-BNB LP',
+    lpAddresses: {
+      97: '0xeEE9b2aae625Cb5060F9fab22339b9a1A4739040',
       56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
     },
     token: serializedTokens.dooda,
     quoteToken: serializedTokens.wbnb,
   },
-  {
-    pid: 252,
-    lpSymbol: 'BUSD-BNB LP',
-    lpAddresses: {
-      97: '0xd7Ee7B048e1a19Acd2Bf649487DB49Cfb4dF5008',
-      56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
-    },
-    token: serializedTokens.busd,
-    quoteToken: serializedTokens.wbnb,
-  },
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
-  {
-    pid: 11,
-    lpSymbol: 'DOODA-TROAD LP',
-    lpAddresses: {
-      97: '0xb39AeCd67f6C08597a9ff059d10Aa85b64bae192',
-      56: '0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd',
-    },
-    token: serializedTokens.dooda,
-    quoteToken: serializedTokens.troad,
-  },
 ]
 
 export default farms
