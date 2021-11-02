@@ -16,5 +16,4 @@ describe('Farms Page', () => {
     cy.get('#farms-table').should('be.visible')
   })
   */
-
 })
