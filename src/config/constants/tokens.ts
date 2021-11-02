@@ -1638,7 +1638,7 @@ export const mainnetTokens = {
   ),
   dooda: new Token(
     MAINNET,
-    '0x2904940De789B2034D5bA883bD049BA71d54Ef51',
+    '0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2',
     18,
     'DOODA',
     'Doodaswap Token',

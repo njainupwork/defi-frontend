@@ -81,6 +81,12 @@ your environment? What steps will reproduce the issue? What browser(s) and OS
 experience the problem? What would you expect to be the outcome? All these
 details will help people to fix any potential bugs.
 
+## Setup using Docker
+
+- Install latest version of docker from `https://docs.docker.com/engine/install/
+- After installing docker install docker compose from https://docs.docker.com/compose/install/
+- To start the docker container enter the command `docker-compose up -d` in terminal
+
 Template:
 
 ```

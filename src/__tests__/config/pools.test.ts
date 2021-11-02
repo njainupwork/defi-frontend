@@ -2,8 +2,8 @@ import pools from 'config/constants/pools'
 import { getSouschefContract, getSouschefV2Contract } from 'utils/contractHelpers'
 
 // Pool 0 is special (cake pool)
-// Pool 78 is a broken pool, not used, and break the tests
-const idsToRemove = [0, 78]
+// Pool 221 is a broken pool, not used, and break the tests
+const idsToRemove = [0, 221]
 // Test only against the last 10 farms, for performance concern
 const poolsToTest = pools.filter((pool) => !idsToRemove.includes(pool.sousId)).slice(0, 10)
 
@@ -15,7 +15,7 @@ describe('Config pools', () => {
   it.each(pools.map((pool) => [pool.sousId, pool.contractAddress]))(
     'Pool #%d has an unique contract address',
     (sousId, contractAddress) => {
-      const duplicates = pools.filter((p) => contractAddress[56] === p.contractAddress[56])
+      const duplicates = pools.filter((p) => contractAddress[97] === p.contractAddress[97])
       expect(duplicates).toHaveLength(1)
     },
   )

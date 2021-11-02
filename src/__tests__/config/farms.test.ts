@@ -16,18 +16,17 @@ describe('Config farms', () => {
   })
 
   it.each(farmsToTest)('Farm #%d has an unique address', (pid, farm) => {
-    const duplicates = farms.filter((f) => farm.lpAddresses[56] === f.lpAddresses[56])
+    const duplicates = farms.filter((f) => farm.lpAddresses[97] === f.lpAddresses[97])
     expect(duplicates).toHaveLength(1)
   })
 
   it.each(farmsToTest)('Farm %d has the correct token addresses', async (pid, farm) => {
     const tokenAddress = farm.token.address
     const quoteTokenAddress = farm.quoteToken.address
-    const lpContract = getLpContract(farm.lpAddresses[56])
+    const lpContract = getLpContract(farm.lpAddresses[97])
 
     const token0Address = (await lpContract.token0()).toLowerCase()
     const token1Address = (await lpContract.token1()).toLowerCase()
-
     expect(
       token0Address === tokenAddress.toLowerCase() || token0Address === quoteTokenAddress.toLowerCase(),
     ).toBeTruthy()
@@ -40,20 +39,20 @@ describe('Config farms', () => {
     const tokenContract = getBep20Contract(farm.token.address)
     const quoteTokenContract = getBep20Contract(farm.quoteToken.address)
 
-    const tokenAmount: BigNumber = await tokenContract.balanceOf(farm.lpAddresses[56])
-    const quoteTokenAmount: BigNumber = await quoteTokenContract.balanceOf(farm.lpAddresses[56])
+    const tokenAmount: BigNumber = await tokenContract.balanceOf(farm.lpAddresses[97])
+    const quoteTokenAmount: BigNumber = await quoteTokenContract.balanceOf(farm.lpAddresses[97])
 
     expect(tokenAmount.gt(0)).toBeTruthy()
     expect(quoteTokenAmount.gt(0)).toBeTruthy()
   })
 
   // The first pid using the new factory
-  const START_PID = 365
-  const FACTORY_ADDRESS = '0x87A38B3EA47Db396c4157ff18A7ecf1FAB8CC203'
+  const START_PID = 1
+  const FACTORY_ADDRESS = '0x87a38b3ea47db396c4157ff18a7ecf1fab8cc203'
   const newFarmsToTest = farmsToTest.filter((farmSet) => farmSet[0] >= START_PID)
 
   it.each(newFarmsToTest)('farm %d is using correct factory address', async (pid, farm) => {
-    const lpContract = getLpContract(farm.lpAddresses[56])
+    const lpContract = getLpContract(farm.lpAddresses[97])
     const factory = await lpContract.factory()
     expect(factory.toLowerCase()).toEqual(FACTORY_ADDRESS)
   })
