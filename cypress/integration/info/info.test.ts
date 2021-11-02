@@ -10,6 +10,7 @@ describe('Info Page', () => {
   })
 
   it('loads single pool page', () => {
+    // This is mainnet , not testnet
     cy.visit('/info/pool/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16')
     // Sometime no issue, sometime works, due to network issue.
     // eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -23,7 +24,7 @@ describe('Info Page', () => {
   })
 
   it('loads single token page', () => {
-    cy.visit('/info/token/0xcde538bd8954ead01c56194f5c9905b310a5bd0e')
+    cy.visit('/info/token/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c')
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(30000)
     cy.get('#info-token-name-title').should('be.visible')

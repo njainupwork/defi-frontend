@@ -35,14 +35,6 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     },
     {
-      "name": "BUSD Token",
-      "symbol": "BUSD",
-      "address": "0xC0063D362A8EA40Cb32A774c75683429c2B4860c",
-      "chainId": 97,
-      "decimals": 18,
-      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
-    },
-    {
       "name": "Ethereum Token",
       "symbol": "ETH",
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
@@ -149,10 +141,10 @@
     {
       "name": "Dooda",
       "symbol": "DOODA",
-      "address": "0x2904940De789B2034D5bA883bD049BA71d54Ef51",
+      "address": "0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x2904940De789B2034D5bA883bD049BA71d54Ef51.png"
+      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2.png"
     },
     {
       "name": "Troad",
@@ -161,6 +153,14 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x637A86aFf37dF6cD3c6c16439a4bdeE32272Fdc7.png"
+    },
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xC0063D362A8EA40Cb32A774c75683429c2B4860c.png"
     }
   ]
 }
