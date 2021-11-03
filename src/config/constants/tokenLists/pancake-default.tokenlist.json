@@ -141,10 +141,10 @@
     {
       "name": "Dooda",
       "symbol": "DOODA",
-      "address": "0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2",
+      "address": "0x5014d0abfc8428f0f8ccd0c5f010fe47569d8d34",
       "chainId": 97,
       "decimals": 18,
-      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2.png"
+      "logoURI": "https://doodaswap.s3.ap-northeast-2.amazonaws.com/images/tokens/0x5014d0abfc8428f0f8ccd0c5f010fe47569d8d34.png"
     },
     {
       "name": "Troad",

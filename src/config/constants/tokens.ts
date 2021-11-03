@@ -1682,7 +1682,7 @@ export const testnetTokens = {
   ),
   syrup: new Token(
     TESTNET,
-    '0x4951415C71b676e65304bb8063792FCaFE697854',
+    '0x0310ccb6b80f6f9db07ce2e0f67982586000aacd',
     18,
     'SYRUP',
     'SyrupBar Token',
@@ -1698,7 +1698,7 @@ export const testnetTokens = {
   ),
   dooda: new Token(
     TESTNET,
-    '0xa6902946F5F20d875Cb1E337EBA5E769B89D89e2',
+    '0x5014d0abfc8428f0f8ccd0c5f010fe47569d8d34',
     18,
     'DOODA',
     'Doodaswap Token',
