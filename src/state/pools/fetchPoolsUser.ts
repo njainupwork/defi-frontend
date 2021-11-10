@@ -22,7 +22,7 @@ export const fetchPoolsAllowance = async (account) => {
   }))
 
   const allowances = await multicall(erc20ABI, calls)
-  console.log('allowances --->', calls)
+
   return nonBnbPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
     {},
